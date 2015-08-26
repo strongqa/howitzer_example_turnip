@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 #
 # gem 'capybara-webkit'
 
-gem 'howitzer', github: 'strongqa/howitzer', branch: 'prereq'
+gem 'howitzer', github: 'strongqa/howitzer', branch: 'v2.0'
 gem 'her'
 gem 'factory_girl'
 gem 'turnip'
