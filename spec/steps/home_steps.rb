@@ -3,7 +3,7 @@ module HomeSteps
   # GIVEN
 
   step "there is an article" do
-    self.article = FactoryGirl.build(:article).save!
+    self.article = build(:article).save!
   end
 
   # WHEN
