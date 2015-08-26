@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :article do
-    title { "Article title #{generate(:serial)}"}
+    title { "Article title #{Gen.serial}"}
     text { 'Test text' }
   end
 end
