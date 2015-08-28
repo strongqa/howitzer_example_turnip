@@ -1,10 +1,6 @@
 module HomeSteps
-  attr_accessor :article
-  # GIVEN
 
-  step "there is an article" do
-    self.article = build(:article).save!
-  end
+  # GIVEN
 
   # WHEN
 

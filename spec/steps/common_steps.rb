@@ -1,5 +1,7 @@
 module Turnip::Steps
-  attr_accessor :user
+
+  attr_accessor :user, :article
+
   # GIVEN
 
   step "opened browser" do
@@ -22,6 +24,9 @@ module Turnip::Steps
     LoginPage.open.login_as(self.user.email, self.user.password)
   end
 
+  step "there is an article" do
+    self.article = build(:article).save!
+  end
   # WHEN
 
   step "I open :page page" do |page|
