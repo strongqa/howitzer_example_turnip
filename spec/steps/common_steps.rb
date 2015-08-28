@@ -14,7 +14,7 @@ module Turnip::Steps
     page.open
   end
 
-  step "there is registered user in the system" do
+  step "there is user in the system" do
     self.user = build(:user).save!
   end
 

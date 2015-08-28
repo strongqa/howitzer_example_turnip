@@ -5,7 +5,7 @@ Feature: Users List
   So I can see Users list
 
   Scenario: user is viewing users in Users list
-    Given there is registered user in the system
+    Given there is user in the system
     And I am logged to the system as user
     When I click 'Users' menu item
     Then I should be redirected to users page
