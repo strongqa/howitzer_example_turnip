@@ -1,5 +1,5 @@
 module Turnip::Steps
-
+  attr_accessor :user
   # GIVEN
 
   step "opened browser" do
@@ -14,16 +14,40 @@ module Turnip::Steps
     page.open
   end
 
+  step "registered user in the system" do
+    self.user = build(:user).save!
+  end
+
+  step "I logged to the system as user" do
+    LoginPage.open.login_as(self.user.email, self.user.password)
+  end
+
   # WHEN
 
   step "I open :page page" do |page|
     page.open
   end
 
+  step "I click :item menu item" do |item|
+    HomePage.given.choose_menu(item.capitalize)
+  end
+
   # THEN
 
   step ":page page should be displayed" do |page|
     page.wait_for_opened
+  end
+
+  step "I should see following text on :page page:" do |page, text|
+    expect(page.given.text).to include(text)
+  end
+
+  step "I should be redirected to :page page" do |page|
+    page.given
+  end
+
+  step "I should see user's email signed up on today's date" do
+    expect(UsersPage.given.user_registration_date(self.user.email)).to include (Date.current.to_s(:db))
   end
 
 end

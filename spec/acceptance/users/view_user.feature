@@ -4,7 +4,8 @@ Feature: User Viewing
   So I can see users data on user's page
 
   Scenario: user can see users data on user page
-    Given I logged to the system as user
+    Given registered user in the system
+    And I logged to the system as user
     And registered another user in the system
     And registered admin user in the system
     And opened users list page 
