@@ -4,10 +4,6 @@ module AddArticleSteps
 
   # GIVEN
 
-  step "I am on articles list page" do
-    ArticleListPage.open
-  end
-
   # WHEN
 
   step "I click new article button on article list page" do
