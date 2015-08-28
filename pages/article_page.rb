@@ -13,6 +13,7 @@ class ArticlePage < WebPage
   add_locator :article_button, lambda{|title| {xpath: "//a[contains(.,'#{title}')]"} }
   add_locator :comment_form, "#new_comment"
   add_locator :back_to_articles, xpath: ".//a[contains(.,'Back to Articles')]"
+  add_button_locator :edit_article_button, xpath: ".//a[contains(.,'Edit Article')]"
   
   include MainMenu
 
@@ -65,7 +66,7 @@ class ArticlePage < WebPage
   end
 
   def body_field_present?
-    find("#comment_body")
+    find(field_locator :comment_field)
     true
   rescue Capybara::ElementNotFound
     false
@@ -73,21 +74,21 @@ class ArticlePage < WebPage
 
 
   def edit_button_present?
-    find("[href*='/edit']")
+    find(button_locator :edit_article_button)
     true
   rescue Capybara::ElementNotFound
     false
   end
 
   def add_comment_button_present?
-    find("[name='commit']")
+    find(button_locator :add_comment_button)
     true
   rescue Capybara::ElementNotFound
     false
   end
 
   def destroy_comment_link_present?
-    find("[href*='comment']")
+    find(locator(:destroy_comment))
     true
   rescue Capybara::ElementNotFound
     false
