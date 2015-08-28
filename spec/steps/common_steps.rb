@@ -14,11 +14,11 @@ module Turnip::Steps
     page.open
   end
 
-  step "registered user in the system" do
+  step "there is registered user in the system" do
     self.user = build(:user).save!
   end
 
-  step "I logged to the system as user" do
+  step "I am logged to the system as user" do
     LoginPage.open.login_as(self.user.email, self.user.password)
   end
 
@@ -44,10 +44,6 @@ module Turnip::Steps
 
   step "I should be redirected to :page page" do |page|
     page.given
-  end
-
-  step "I should see user's email signed up on today's date" do
-    expect(UsersPage.given.user_registration_date(self.user.email)).to include (Date.current.to_s(:db))
   end
 
 end
