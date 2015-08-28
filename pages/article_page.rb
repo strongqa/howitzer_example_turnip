@@ -12,6 +12,7 @@ class ArticlePage < WebPage
   add_locator :destroy_comment, lambda{|comment| {xpath: ".//p[contains(.,'#{comment}')]/following-sibling::p/a[.='Destroy Comment']"} }
   add_locator :article_button, lambda{|title| {xpath: "//a[contains(.,'#{title}')]"} }
   add_locator :comment_form, "#new_comment"
+  add_locator :back_to_articles, xpath: ".//a[contains(.,'Back to Articles')]"
   
   include MainMenu
 
@@ -93,6 +94,7 @@ class ArticlePage < WebPage
   end
 
   def back_to_article_list()
-    find_link("Back to Articles").click
+    find(locator(:back_to_articles)).click
   end
+
 end

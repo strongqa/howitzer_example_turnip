@@ -4,10 +4,6 @@ module ArticlesListSteps
 
   # WHEN
 
-  step "I open articles list page" do
-    ArticleListPage.open
-  end
-
   # THEN
 
   step "I should see article in articles list page with correct article parameters" do
