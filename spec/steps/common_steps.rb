@@ -37,6 +37,10 @@ module Turnip::Steps
     HomePage.given.choose_menu(item.capitalize)
   end
 
+  step "I open articles list page" do
+    ArticleListPage.open
+  end
+
   # THEN
 
   step ":page page should be displayed" do |page|
