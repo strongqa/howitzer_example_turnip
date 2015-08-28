@@ -5,8 +5,8 @@ Feature: Article Destroying
   So other users can't see my article
 
   Scenario: user can remove article from articles list
-    Given I am logged to the system as admin user
-    And there is an article
-    And I open articles list page
-    When I click 'Destroy' button and confirm action
+    Given there is an article
+    And I am logged to the system as admin user
+    And I am on articles list page
+    When I click destroy button and confirm action
     Then I should not see article on articles list page

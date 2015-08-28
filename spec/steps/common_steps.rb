@@ -27,6 +27,11 @@ module Turnip::Steps
   step "there is an article" do
     self.article = build(:article).save!
   end
+
+  step "I am on articles list page" do
+    ArticleListPage.open
+  end
+
   # WHEN
 
   step "I open :page page" do |page|

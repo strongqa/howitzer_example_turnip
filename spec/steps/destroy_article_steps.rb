@@ -4,7 +4,7 @@ module DestroyArticleteps
 
   # WHEN
 
-  step "I click 'Destroy' button and confirm action" do
+  step "I click destroy button and confirm action" do
     ArticleListPage.given.destroy_article(self.article.title, true)
   end
 
