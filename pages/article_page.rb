@@ -22,7 +22,7 @@ class ArticlePage < WebPage
   end
 
 
-  def fill_comment_form(body)
+  def fill_comment_form(body: nil)
     log.info "Fill in Add Comment form with body: #{body}"
     fill_in(field_locator(:comment_field), with: body) unless body.nil?
   end
