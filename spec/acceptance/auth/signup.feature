@@ -1,3 +1,4 @@
+@signup_steps
 Feature: Sign Up
   As user 
   I want to sign up to the system
@@ -6,7 +7,7 @@ Feature: Sign Up
   Scenario: user can open sign up page via menu
     Given opened home page
     When I click sign up menu item on home page
-    Then I should be redirected to sign up page
+    Then I should be redirected to SignUp page
 
   Scenario: user can sign up with correct credentials
     Given opened sign up page
