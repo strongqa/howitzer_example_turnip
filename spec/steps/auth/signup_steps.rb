@@ -2,15 +2,11 @@ module SignupSteps
   attr_accessor :user
 
   # GIVEN
-  step "opened sign up page" do
+  step "I am on sign up page" do
     SignUpPage.open
   end
 
-  step "registered user in the system" do
-    self.user = build(:user).save!
-  end
-
-  # WHEN
+    # WHEN
   step "I click sign up menu item on home page" do
     HomePage.given.choose_menu('Sign up')
   end
