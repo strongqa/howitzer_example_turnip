@@ -11,7 +11,7 @@ Feature: Log In
 
   @bvt
   Scenario: user can login with correct credentials
-    Given I am logged as user
+    Given registered user in the system
     And opened login page
     When I fill and submit form on login page with correct data
     Then I should be logged to the system
@@ -19,7 +19,7 @@ Feature: Log In
 
   @bvt @bug
   Scenario: user can login with remembering credentials
-    Given I am logged as user
+    Given registered user in the system
     And opened login page
     When I fill and submit form on login page with correct data
     And I check 'Remember me' checkbox
@@ -34,7 +34,7 @@ Feature: Log In
 
   @p1
   Scenario: user can not login with blank data
-    Given I am logged as user
+    Given registered user in the system
     And opened login page
     When I fill and submit form on login page with blank password field
     Then I should not be logged to the system
@@ -48,7 +48,7 @@ Feature: Log In
       
   @p1
   Scenario: user can not login with incorrect data
-    Given I am logged as user
+    Given registered user in the system
     And opened login page
     When I fill and submit form on login page with not user's email data
     Then I should not be logged to the system
@@ -77,6 +77,6 @@ Feature: Log In
     And opened edit account page
     When I click 'Cancel account' button and confirm action
     Then I should see info on home page that account was cancelled
-    When I fill and submit Login form on login page with correct user' data
+    When I fill and submit Login form on login page with correct user's data
     Then I should not be logged to the system
     And I should see info on login page that password or email is invalid
