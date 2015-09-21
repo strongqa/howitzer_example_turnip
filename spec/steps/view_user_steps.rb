@@ -1,19 +1,6 @@
 module ViewUserSteps
-  attr_accessor :user1, :user2
 
   # GIVEN
-
-  step "there is user1 in the system" do
-    self.user1 = build(:user).save!
-  end
-
-  step "there is user2 in the system" do
-    self.user2 = build(:user).save!
-  end
-
-  step "I am logged to the system as user2" do
-    LoginPage.open.login_as(self.user2.email, self.user2.password)
-  end
 
   # WHEN
 
