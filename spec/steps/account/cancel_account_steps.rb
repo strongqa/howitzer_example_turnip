@@ -4,10 +4,6 @@ module CancelAccountSteps
 
   # WHEN
 
-  step "I click on cancel my account button on edit account page and confirm action" do
-    EditAccountPage.given.cancel_my_account
-  end
-
   # THEN
 
 end

@@ -13,10 +13,6 @@ module EditAccountSteps
                                     current_password: self.user.password).submit_form
   end
 
-  step "I log out" do
-    HomePage.given.choose_menu('Logout')
-  end
-
   step "I fill form on login page with correct email and new password" do
     LoginPage.open.login_as(self.user.email, self.new_user.password)
   end
@@ -72,14 +68,6 @@ module EditAccountSteps
   end
 
   # THEN
-
-  step "I should not be logged in the system" do
-    expect(HomePage).to_not be_authenticated
-  end
-
-  step "I should be logged in the system" do
-    expect(HomePage).to be_authenticated
-  end
 
   step "I should see newly created data" do
     expect(EditAccountPage.open.form_data).to eq({user_name: self.new_user.name,

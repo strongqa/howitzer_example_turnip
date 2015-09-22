@@ -14,9 +14,9 @@ Feature: Account Editing
     You updated your account successfully.
     """
     When I log out
-    Then I should not be logged in the system
+    Then I should not be logged to the system
     When I fill form on login page with correct email and new password
-    Then I should be logged in the system
+    Then I should be logged to the system
     When I open edit account page
     Then I should see newly created data
 
@@ -36,7 +36,7 @@ Feature: Account Editing
     """
     When I log out
     And I fill form on login page with correct new email and password
-    Then I should be logged in the system
+    Then I should be logged to the system
     And I should see following text on home page:
     """
     Signed in successfully.

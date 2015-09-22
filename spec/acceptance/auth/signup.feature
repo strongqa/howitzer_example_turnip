@@ -11,13 +11,13 @@ Feature: Sign Up
 
   Scenario: user can sign up with correct credentials
     Given I am on sign up page
-    When I fill and submit form with correct data
+    When I fill and submit form on sign up page with correct data
     Then I should not be logged to the system
     And I should see info on home page that confirmation link has been sent to email address
     And I should receive confirmation email
     When I confirm account from confirmation email
     Then I should see info on login page that account was successfully confirmed
-    When I fill and submit form with correct data on login page
+    When I fill and submit form on login page with correct data
     Then I should be logged to the system
     And I should be redirected to home page
 
