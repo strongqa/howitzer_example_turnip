@@ -1,4 +1,5 @@
 require 'rspec'
+require 'byebug'
 require 'capybara/rspec'
 require_relative '../boot'
 
