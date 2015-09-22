@@ -48,6 +48,10 @@ module Turnip::Steps
     LoginPage.open.login_as(self.user2.email, self.user2.password)
   end
 
+  step "I am on sign up page" do
+    SignUpPage.open
+  end
+
   # WHEN
 
   step "I open :page page" do |page|
@@ -62,6 +66,28 @@ module Turnip::Steps
     ArticleListPage.open
   end
 
+  step "I log out" do
+    HomePage.given.choose_menu('Logout')
+  end
+
+  step "I fill and submit form on sign up page with correct data" do
+    self.user=build(:user)
+    SignUpPage.
+        open.fill_form(
+        user_name: self.user.name ,
+        email: self.user.email,
+        password: self.user.password,
+        password_confirmation: self.user.password).submit_form
+  end
+
+  step "I fill and submit form on login page with correct data" do
+    LoginPage.given.fill_form(email: self.user.email, password: self.user.password).submit_form
+  end
+
+  step "I click on cancel my account button on edit account page and confirm action" do
+    EditAccountPage.given.cancel_my_account
+  end
+
   # THEN
 
   step ":page page should be displayed" do |page|
@@ -69,11 +95,19 @@ module Turnip::Steps
   end
 
   step "I should see following text on :page page:" do |page, text|
-    expect(page.given.flash_message).to eql(text)
+    expect(page.given.text).to include(text)
   end
 
   step "I should be redirected to :page page" do |page|
     page.given
+  end
+
+  step "I should not be logged to the system" do
+    expect(HomePage).to_not be_authenticated
+  end
+
+  step "I should be logged to the system" do
+    expect(HomePage).to be_authenticated
   end
 
 end

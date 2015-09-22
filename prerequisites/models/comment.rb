@@ -1,3 +1,4 @@
 class Comment
-  attr_accessor :body
+  include Her::Model
+  collection_path "articles/:article_id/comments"
 end
