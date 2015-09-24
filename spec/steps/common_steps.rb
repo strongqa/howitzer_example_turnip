@@ -54,7 +54,7 @@ module Turnip::Steps
 
   step "there is an article with created by admin user comment to this article" do
     self.article = create(:article)
-    self.comment = self.article.comments.create(body: "Some comment", user_id: User.where(email: 'admin@strongqa.com').all.first.id)
+    self.comment = self.article.comments.create(body: "Some comment", user_id: User.where(email: settings.def_test_user).all.first.id)
   end
 
   # WHEN

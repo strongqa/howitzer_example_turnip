@@ -80,7 +80,7 @@ Feature: Log In
   Scenario: user can not login until confirmation email is not confirmed
     Given I am on sign up page
     When I fill and submit form on sign up page with correct data
-    Then I should be logged to the system
+    Then I should not be logged to the system
     And I should be redirected to home page
     And I should see following text on home page:
     """
