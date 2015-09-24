@@ -1,6 +1,6 @@
 module Turnip::Steps
 
-  attr_accessor :user, :user1, :user2, :article
+  attr_accessor :user, :user1, :user2, :article, :comment
 
   # GIVEN
 
@@ -52,6 +52,11 @@ module Turnip::Steps
     SignUpPage.open
   end
 
+  step "there is an article with created by admin user comment to this article" do
+    self.article = create(:article)
+    self.comment = self.article.comments.create(body: "Some comment", user_id: User.where(email: settings.def_test_user).all.first.id)
+  end
+
   # WHEN
 
   step "I open :page page" do |page|
@@ -86,6 +91,10 @@ module Turnip::Steps
 
   step "I click on cancel my account button on edit account page and confirm action" do
     EditAccountPage.given.cancel_my_account
+  end
+
+  step "I open this article page" do
+    ArticlePage.open(self.article.id)
   end
 
   # THEN
