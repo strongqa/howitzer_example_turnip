@@ -17,21 +17,22 @@ Feature: Log In
     Then I should be logged to the system
     And I should be redirected to home page
 
-  Scenario: user can login with remembering credentials
-    Given there is user in the system
-    And I am on login page
-    When I fill and submit form on login page with check 'Remember me' checkbox
-    Then I should be logged to the system
-    And I should be redirected to home page
-    When I close my browser
-    And I come back next time
-    Then I should be logged to the system
-
-    When I log out
-    Then I should not be logged to the system
-    When I close my browser
-    And I come back next time
-    Then I should not be logged to the system
+#  @bug
+#  Scenario: user can login with remembering credentials
+#    Given there is user in the system
+#    And I am on login page
+#    When I fill and submit form on login page with check 'Remember me' checkbox
+#    Then I should be logged to the system
+#    And I should be redirected to home page
+#    When I close my browser
+#    And I come back next time
+#    Then I should be logged to the system
+#
+#    When I log out
+#    Then I should not be logged to the system
+#    When I close my browser
+#    And I come back next time
+#    Then I should not be logged to the system
 
   Scenario: user can not login with blank data
     Given there is user in the system
