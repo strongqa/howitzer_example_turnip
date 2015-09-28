@@ -10,11 +10,8 @@ Feature: User Viewing
     And I am logged to the system as user2
     And I am on users page
     When I click on user1 email on users page
-    Then I should be redirected to users page
-    And I should see user1 email on users page
+    Then I should see user1 email on users page
     When I click on my email on users page
-    Then I should be redirected to users page
-    And I should see my email on users page
+    Then I should see my email on users page
     When I click on admin email on users page
-    Then I should be redirected to users page
-    And I should see admin email on users page
+    Then I should see admin email on users page
