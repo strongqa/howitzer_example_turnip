@@ -101,14 +101,14 @@
 # LOGGER SETTINGS                                         #
 ###########################################################
  log_dir: "log"
- txt_log: log.txt
  html_log: log.html
  selenium_server_log: selenium-server.log
  required_clean_logs: true
 
 ###########################################################
-# MAILGUN SETTINGS                                        #
+# MAIL SETTINGS                                           #
 ###########################################################
+ mail_adapter: mailgun
  mailgun_key: key-fdc7dfaf228e6c6827ebe94da27125b6
  mailgun_domain: mg.strongqa.com
 
