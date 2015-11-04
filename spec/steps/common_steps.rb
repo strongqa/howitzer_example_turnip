@@ -94,7 +94,7 @@ module Turnip::Steps
   end
 
   step "I open this article page" do
-    ArticlePage.open(self.article.id)
+    ArticlePage.open(id: self.article.id)
   end
 
   # THEN

@@ -5,7 +5,7 @@ module AddCommentSteps
   # GIVEN
 
   step "I am on an article page" do
-    ArticlePage.open(self.article.id)
+    ArticlePage.open(id: self.article.id)
   end
 
   # WHEN
