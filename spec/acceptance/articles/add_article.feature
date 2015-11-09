@@ -13,8 +13,9 @@ Feature: Article Adding
     And I fill and submit form on new article page with correct data
     Then I should see newly created article with correct data on article page 
     When I open articles list page
-    Then I should see newly created article with correct data on article list page 
+    Then I should see newly created article with correct data on article list page
 
+  @p1
   Scenario: user can not add article with blank data
     When I click new article button on article list page
     And I fill and submit form on new article page with blank data
@@ -23,6 +24,7 @@ Feature: Article Adding
     2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)
     """
 
+  @p1
   Scenario: user can not add article with too short title
     When I click new article button on article list page
     And I fill and submit form on new article page with data less then 5 characters in 'Title' field

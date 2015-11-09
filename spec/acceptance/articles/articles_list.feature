@@ -1,4 +1,4 @@
-@articles_list_steps
+@articles_list_steps @smoke
 Feature: Article list
   As user
   I want to view my articles

@@ -3,7 +3,8 @@ Feature: Sign Up
   As user 
   I want to sign up to the system
   So I can login with a new account
-  
+
+  @smoke
   Scenario: user can open sign up page via menu
     Given I am on home page
     When I click sign up menu item on home page
@@ -21,6 +22,7 @@ Feature: Sign Up
     Then I should be logged to the system
     And I should be redirected to home page
 
+  @p1
   Scenario: user can not sign up with blank data
     Given I am on sign up page
     When I fill and submit form with blank all fields
@@ -30,6 +32,7 @@ Feature: Sign Up
     When I fill and submit form with blank 'Email' field
     Then I should see info on sign up page that email can't be blank
 
+  @p1
   Scenario: user can not sign up with incorrect data
     Given I am on sign up page
     When I fill and submit form with not email data in 'Email' field

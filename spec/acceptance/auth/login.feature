@@ -4,6 +4,7 @@ Feature: Log In
   I want to use my credentials to login the system
   So I can login the system
 
+  @smoke
   Scenario: user can open login page via menu
     Given there is user in the system
     And I am on home page
@@ -17,23 +18,24 @@ Feature: Log In
     Then I should be logged to the system
     And I should be redirected to home page
 
-#  @bug
-#  Scenario: user can login with remembering credentials
-#    Given there is user in the system
-#    And I am on login page
-#    When I fill and submit form on login page with check 'Remember me' checkbox
-#    Then I should be logged to the system
-#    And I should be redirected to home page
-#    When I close my browser
-#    And I come back next time
-#    Then I should be logged to the system
-#
-#    When I log out
-#    Then I should not be logged to the system
-#    When I close my browser
-#    And I come back next time
-#    Then I should not be logged to the system
+  @bug
+  Scenario: user can login with remembering credentials
+    Given there is user in the system
+    And I am on login page
+    When I fill and submit form on login page with check 'Remember me' checkbox
+    Then I should be logged to the system
+    And I should be redirected to home page
+    When I close my browser
+    And I come back next time
+    Then I should be logged to the system
 
+    When I log out
+    Then I should not be logged to the system
+    When I close my browser
+    And I come back next time
+    Then I should not be logged to the system
+
+  @p1
   Scenario: user can not login with blank data
     Given there is user in the system
     And I am on login page
@@ -56,6 +58,7 @@ Feature: Log In
     Invalid email or password.
     """
 
+  @p1
   Scenario: user can not login with incorrect data
     Given there is user in the system
     And I am on login page
@@ -94,7 +97,6 @@ Feature: Log In
     """
     You have to confirm your account before continuing.
     """
-
   Scenario: canceled user can not login
     Given there is user in the system
     And I am logged to the system as user

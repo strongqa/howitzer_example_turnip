@@ -18,6 +18,7 @@ Feature: Article Comment Adding
     """
     And I should see created comment on article page
 
+  @p1
   Scenario: user can not add comment with blank data
     When I submit new comment form on article page with blank data
     Then I should see following text on article page:

@@ -21,6 +21,7 @@ Feature: Password Resetting
     Your password was changed successfully. You are now signed in.
     """
 
+  @p1
   Scenario: user can not reset password with incorrect new password
     Given there is user in the system
     And I am on login page
@@ -42,6 +43,7 @@ Feature: Password Resetting
     1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)
     """
 
+  @p1
   Scenario: user can not reset password with incorrect email
     Given there is user in the system
     And I am on login page

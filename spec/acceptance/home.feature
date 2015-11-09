@@ -1,4 +1,4 @@
-@home_steps
+@home_steps @smoke
 Feature: Home
 
   Scenario: visitor can see home page of web application
