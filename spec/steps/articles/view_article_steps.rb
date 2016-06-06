@@ -22,17 +22,17 @@ module ViewArticleSteps
   end
 
   step "I should see add comment form on article page" do
-    expect(ArticlePage.given).to be_comment_form_present
+    expect(ArticlePage.given).to have_comment_form_element
   end
 
   step "I should see body field on article page" do
-    expect(ArticlePage.given).to be_body_field_present
+    expect(ArticlePage.given).to have_comment_field_element
   end
 
   step "I should see buttons: edit article, destroy comment, create comment on article page" do
-    expect(ArticlePage.given).to be_edit_button_present
-    expect(ArticlePage.given).to be_add_comment_button_present
-    expect(ArticlePage.given).to be_destroy_comment_link_present(self.comment.body)
+    expect(ArticlePage.given).to have_edit_article_button_element
+    expect(ArticlePage.given).to have_add_comment_button_element
+    expect(ArticlePage.given).to have_destroy_comment_element(self.comment.body)
   end
 
   step "I should be redirected to article list page" do

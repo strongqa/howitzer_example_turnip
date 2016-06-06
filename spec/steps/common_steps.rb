@@ -112,7 +112,7 @@ module Turnip::Steps
   end
 
   step "I should not be logged to the system" do
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
   end
 
   step "I should be logged to the system" do
