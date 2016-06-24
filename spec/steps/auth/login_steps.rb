@@ -52,7 +52,7 @@ module LoginSteps
   end
 
   step "I close my browser" do
-    page.execute_script "window.close();"
+    execute_script "window.close();"
   end
 
 end
