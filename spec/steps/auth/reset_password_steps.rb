@@ -57,7 +57,7 @@ module ResetPasswordSteps
   end
 
   step "forgot password page should be displayed" do
-    ForgotPasswordPage.wait_for_opened
+    expect(ForgotPasswordPage).to be_displayed
   end
 
 end

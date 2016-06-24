@@ -100,7 +100,7 @@ module Turnip::Steps
   # THEN
 
   step ":page page should be displayed" do |page|
-    page.wait_for_opened
+    expect(page).to be_displayed
   end
 
   step "I should see following text on :page page:" do |page, text|

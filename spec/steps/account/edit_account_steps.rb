@@ -78,7 +78,7 @@ module EditAccountSteps
   end
 
   step "edit account page should be displayed" do
-    EditAccountPage.wait_for_opened
+    expect(EditAccountPage).to be_displayed
   end
 
   step "I should see following text on edit account page:" do |text|

@@ -11,7 +11,7 @@ module BlankPageSteps
   # THEN
 
   step "web blank page should be displayed" do
-    Howitzer::Web::BlankPage.wait_for_opened
+    expect(Howitzer::Web::BlankPage).to be_displayed
   end
 
 end
