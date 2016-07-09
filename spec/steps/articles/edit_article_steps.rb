@@ -32,7 +32,7 @@ module EditArticleSteps
   end
 
   step "I should see following text on edit article page:" do |text|
-    expect(EditArticlePage.given.error_message).to eql(text)
+    expect(EditArticlePage.given.errors_section.error_message).to eql(text)
   end
 
 end

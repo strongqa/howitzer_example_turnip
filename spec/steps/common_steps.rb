@@ -64,7 +64,7 @@ module Turnip::Steps
   end
 
   step "I click :item menu item" do |item|
-    HomePage.given.choose_menu(item.capitalize)
+    HomePage.given.main_menu_section.choose_menu(item.capitalize)
   end
 
   step "I open articles list page" do
@@ -72,7 +72,7 @@ module Turnip::Steps
   end
 
   step "I log out" do
-    HomePage.given.choose_menu('Logout')
+    HomePage.given.main_menu_section.choose_menu('Logout')
   end
 
   step "I fill and submit form on sign up page with correct data" do

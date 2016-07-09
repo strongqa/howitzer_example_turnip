@@ -6,7 +6,7 @@ module SignupSteps
   # WHEN
 
   step "I click sign up menu item on home page" do
-    HomePage.given.choose_menu('Sign up')
+    HomePage.given.main_menu_section.choose_menu('Sign up')
   end
 
   step "I confirm account from confirmation email" do

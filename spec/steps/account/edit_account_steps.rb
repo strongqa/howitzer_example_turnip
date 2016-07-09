@@ -82,7 +82,7 @@ module EditAccountSteps
   end
 
   step "I should see following text on edit account page:" do |text|
-    expect(EditAccountPage.given.error_message).to eql(text)
+    expect(EditAccountPage.given.errors_section.error_message).to eql(text)
   end
 
 end
