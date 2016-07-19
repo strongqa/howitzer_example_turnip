@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/romikoops/sexy_settings.git
-  revision: e8ba15d6f37e878b7da9fa8d498e2cdc91e71596
-  branch: master
-  specs:
-    sexy_settings (0.0.1)
-
-GIT
   remote: git://github.com/strongqa/howitzer.git
   revision: fc81c793b6314280a2c0e47b443aa692704b6b1d
   branch: new_dsl
@@ -109,6 +102,7 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    sexy_settings (0.0.2)
     testingbot (0.1.7)
       json
       net-http-persistent
@@ -136,7 +130,6 @@ DEPENDENCIES
   repeater
   rest-client
   rspec (~> 3.2)
-  sexy_settings!
   testingbot
   turnip
 
