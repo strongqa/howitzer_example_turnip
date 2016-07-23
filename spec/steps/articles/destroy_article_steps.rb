@@ -4,14 +4,16 @@ module DestroyArticleteps
 
   # WHEN
 
-  step "I click destroy button and confirm action" do
-    ArticleListPage.given.destroy_article(self.article.title, true)
+  step 'I click destroy button and confirm action' do
+    article = self.article
+    ArticleListPage.on { destroy_article(article.title, true) }
   end
 
   # THEN
 
-  step "I should not see article on articles list page" do
-    expect(ArticleListPage.given.text).to_not include(self.article.title)
+  step 'I should not see article on articles list page' do
+    article = self.article
+    ArticleListPage.on { expect(text).to_not include(article.title) }
   end
 
 end

@@ -6,7 +6,8 @@ module UsersListSteps
 
   # THEN
   step "I should see user's email signed up on today's date" do
-    expect(UsersPage.given.user_registration_date(self.user.email)).to include (Date.current.to_s(:db))
+    user = self.user
+    UsersPage.on { expect(user_registration_date(user.email)).to include (Date.current.to_s(:db)) }
   end
 
 end
