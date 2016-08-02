@@ -6,33 +6,48 @@ module EditArticleSteps
 
   # WHEN
 
-  step "I click edit button on articles list page" do
-    ArticleListPage.given.edit_article(self.article.title)
+  step 'I click edit button on articles list page' do
+    article = self.article
+    ArticleListPage.on { edit_article(article.title) }
   end
 
-  step "I fill and submit form on edit article page with new correct data" do
+  step 'I fill and submit form on edit article page with new correct data' do
     self.article = build(:article)
-    EditArticlePage.given.fill_form(title: self.article.title, text: self.article.text).submit_form
+    article = self.article
+    EditArticlePage.on do
+      fill_form(title: article.title, text: article.text)
+      submit_form
+    end
   end
 
-  step "I fill and submit form on edit article page with blank data" do
-    EditArticlePage.given.fill_form(title: '', text: '').submit_form
+  step 'I fill and submit form on edit article page with blank data' do
+    EditArticlePage.on do
+      fill_form(title: '', text: '')
+      submit_form
+    end
   end
 
   step "I fill and submit form on edit article page with data less then 5 characters in 'Title' field" do
     self.article = build(:article)
-    EditArticlePage.given.fill_form(title: "1234", text: self.article.text).submit_form
+    article = self.article
+    EditArticlePage.on do
+      fill_form(title: "1234", text: article.text)
+      submit_form
+    end
   end
 
   # THEN
 
-  step "I should see article with new data on article page" do
-    expect(ArticlePage.given.text).to include(self.article.title)
-    expect(ArticlePage.given.text).to include(self.article.text)
+  step 'I should see article with new data on article page' do
+    article = self.article
+    ArticlePage.on do
+      expect(text).to include(article.title)
+      expect(text).to include(article.text)
+    end
   end
 
   step "I should see following text on edit article page:" do |text|
-    expect(EditArticlePage.given.error_message).to eql(text)
+    EditArticlePage.on { expect(errors_section.error_message).to eql(text) }
   end
 
 end

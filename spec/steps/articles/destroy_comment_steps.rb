@@ -4,14 +4,16 @@ module DestroyCommentSteps
 
   # WHEN
 
-  step "I click destroy comment button and confirm action" do
-    ArticlePage.given.destroy_comment(self.comment.body, true)
+  step 'I click destroy comment button and confirm action' do
+    comment = self.comment
+    ArticlePage.on { destroy_comment(comment.body, true) }
   end
 
   # THEN
 
-  step "I should not see comment on article page" do
-    expect(ArticlePage.given.text).to_not include(self.comment.body)
+  step 'I should not see comment on article page' do
+    comment = self.comment
+    ArticlePage.on { expect(text).to_not include(comment.body) }
   end
 
 end

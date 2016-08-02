@@ -4,38 +4,46 @@ module ViewArticleSteps
 
   # WHEN
 
-  step "I click back to articles link on article page" do
-    ArticlePage.given.back_to_article_list
+  step 'I click back to articles link on article page' do
+    ArticlePage.on { back_to_article_list }
   end
 
   # THEN
 
-  step "I should see correct article data on article page" do
-    expect(ArticlePage.given.text).to include(self.article.title)
-    expect(ArticlePage.given.text).to include(self.article.text)
+  step 'I should see correct article data on article page' do
+    article = self.article
+    ArticlePage.on do
+      expect(text).to include(article.title)
+      expect(text).to include(article.text)
+    end
   end
 
-  step "I should see admin user comment on article page with correct comment and commenter data" do
-    # byebug
-    expect(ArticlePage.given.text).to include(self.comment.body)
-    expect(ArticlePage.given.text).to include("admin@strongqa.com")
+  step 'I should see admin user comment on article page with correct comment and commenter data' do
+    comment = self.comment
+    ArticlePage.on do
+      expect(text).to include(comment.body)
+      expect(text).to include("admin@strongqa.com")
+    end
   end
 
-  step "I should see add comment form on article page" do
-    expect(ArticlePage.given).to be_comment_form_present
+  step 'I should see add comment form on article page' do
+    ArticlePage.on { is_expected.to have_comment_form_element }
   end
 
-  step "I should see body field on article page" do
-    expect(ArticlePage.given).to be_body_field_present
+  step 'I should see body field on article page' do
+    ArticlePage.on { is_expected.to have_comment_field_element }
   end
 
-  step "I should see buttons: edit article, destroy comment, create comment on article page" do
-    expect(ArticlePage.given).to be_edit_button_present
-    expect(ArticlePage.given).to be_add_comment_button_present
-    expect(ArticlePage.given).to be_destroy_comment_link_present(self.comment.body)
+  step 'I should see buttons: edit article, destroy comment, create comment on article page' do
+    comment = self.comment
+    ArticlePage.on do
+      is_expected.to have_edit_article_button_element
+      is_expected.to have_add_comment_button_element
+      is_expected.to have_destroy_comment_element(comment.body)
+    end
   end
 
-  step "I should be redirected to article list page" do
+  step 'I should be redirected to article list page' do
     ArticleListPage.given
   end
 

@@ -4,6 +4,6 @@
 [submodule "emails"]
 	path = emails
 	url = https://github.com/strongqa/howitzer_example_emails.git
-[submodule "pages"]
-	path = pages
-	url = https://github.com/strongqa/howitzer_example_pages.git
+[submodule "web"]
+	path = web
+	url = https://github.com/strongqa/howitzer_example_web.git

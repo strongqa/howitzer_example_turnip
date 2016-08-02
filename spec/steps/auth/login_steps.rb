@@ -9,50 +9,77 @@ module LoginSteps
   # WHEN
 
   step "I fill and submit form on login page with check 'Remember me' checkbox" do
-    LoginPage.given.fill_form(email: self.user.email, password: self.user.password, remember_me: 'yes').submit_form
+    user = self.user
+    LoginPage.on do
+      fill_form(email: user.email, password: user.password, remember_me: 'yes')
+      submit_form
+    end
   end
 
-  step "I submit form on login page" do
-    LoginPage.given.submit_form
+  step 'I submit form on login page' do
+    LoginPage.on { submit_form }
   end
 
-  step "I fill and submit form on login page with blank password field" do
-    LoginPage.given.fill_form(email: self.user.email, password: '').submit_form
+  step 'I fill and submit form on login page with blank password field' do
+    user = self.user
+    LoginPage.on do
+      fill_form(email: user.email, password: '')
+      submit_form
+    end
   end
 
-  step "I fill and submit form on login page with blank email field" do
-    LoginPage.given.fill_form(email: '', password: self.user.password).submit_form
+  step 'I fill and submit form on login page with blank email field' do
+    user = self.user
+    LoginPage.on do
+      fill_form(email: '', password: user.password)
+      submit_form
+    end
   end
 
-  step "I fill and submit form on login page with blank all fields" do
-    LoginPage.given.fill_form(email: '', password: '').submit_form
+  step 'I fill and submit form on login page with blank all fields' do
+    LoginPage.on do
+      fill_form(email: '', password: '')
+      submit_form
+    end
   end
 
-  step "I fill and submit form on login page with incorrect password data" do
-    LoginPage.given.fill_form(email: self.user.email, password: 'incorrect_password').submit_form
+  step 'I fill and submit form on login page with incorrect password data' do
+    user = self.user
+    LoginPage.on do
+      fill_form(email: user.email, password: 'incorrect_password')
+      submit_form
+    end
   end
 
-  step "I fill and submit form on login page with incorrect email data" do
-    LoginPage.given.fill_form(email: 'incorrect@example.com', password: self.user.password).submit_form
+  step 'I fill and submit form on login page with incorrect email data' do
+    user = self.user
+    LoginPage.on do
+      fill_form(email: 'incorrect@example.com', password: user.password)
+      submit_form
+    end
   end
 
-  step "I fill and submit form on login page with incorrect password and email data" do
-    LoginPage.given.fill_form(email: 'incorrect@example.com', password: 'incorrect_password').submit_form
+  step 'I fill and submit form on login page with incorrect password and email data' do
+    LoginPage.on do
+      fill_form(email: 'incorrect@example.com', password: 'incorrect_password')
+      submit_form
+    end
   end
 
-  step "I come back next time" do
-    step "I am on home page"
+  step 'I come back next time' do
+    step 'I am on home page'
   end
 
   # THEN
 
   step "I should see user's email in email field and filled password field on login form" do
-    expect(page).to have_text self.user.email
-    expect(page).to have_text self.user.password
+    user = self.user
+    expect(page).to have_text user.email
+    expect(page).to have_text user.password
   end
 
-  step "I close my browser" do
-    page.execute_script "window.close();"
+  step 'I close my browser' do
+    execute_script 'window.close();'
   end
 
 end
