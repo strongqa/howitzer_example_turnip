@@ -11,10 +11,10 @@ module AddArticleSteps
   end
 
   step 'I fill and submit form on new article page with correct data' do
+    s = self
     self.article = build(:article)
-    article = self.article
     NewArticlePage.on do
-      fill_form(title: article.title, text: article.text)
+      fill_form(title: s.article.title, text: s.article.text)
       submit_form
     end
   end
@@ -27,10 +27,10 @@ module AddArticleSteps
   end
 
   step "I fill and submit form on new article page with data less then 5 characters in 'Title' field" do
+    s = self
     self.article = build(:article)
-    article = self.article
     NewArticlePage.on do
-      fill_form(title: "1234", text: article.text)
+      fill_form(title: "1234", text: s.article.text)
       submit_form
     end
   end
@@ -38,18 +38,18 @@ module AddArticleSteps
   # THEN
 
   step 'I should see newly created article with correct data on article page' do
-    article = self.article
+    s = self
     ArticlePage.on do
-      expect(text).to include(article.title)
-      expect(text).to include(article.text)
+      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.text)
     end
   end
 
   step 'I should see newly created article with correct data on article list page' do
-    article = self.article
+    s = self
     ArticleListPage.on do
-      expect(text).to include(article.title)
-      expect(text).to include(article.text)
+      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.text)
     end
   end
 

@@ -22,9 +22,9 @@ module Turnip::Steps
   end
 
   step 'I am logged to the system as user' do
-    user = self.user
+    s = self
     LoginPage.open
-    LoginPage.on { login_as(user.email, user.password) }
+    LoginPage.on { login_as(s.user.email, s.user.password) }
   end
 
   step 'there is an article' do
@@ -48,9 +48,9 @@ module Turnip::Steps
   end
 
   step 'I am logged to the system as user2' do
-    user2 = self.user2
+    s = self
     LoginPage.open
-    LoginPage.on { login_as(user2.email, user2.password) }
+    LoginPage.on { login_as(s.user2.email, s.user2.password) }
   end
 
   step 'I am on sign up page' do
@@ -81,22 +81,22 @@ module Turnip::Steps
   end
 
   step 'I fill and submit form on sign up page with correct data' do
+    s = self
     self.user=build(:user)
-    user = self.user
     SignUpPage.open
     SignUpPage.on do
-      fill_form(user_name: user.name,
-                email: user.email,
-                password: user.password,
-                password_confirmation: user.password)
+      fill_form(user_name: s.user.name,
+                email: s.user.email,
+                password: s.user.password,
+                password_confirmation: s.user.password)
       submit_form
     end
   end
 
   step 'I fill and submit form on login page with correct data' do
-    user = self.user
+    s = self
     LoginPage.on do
-      fill_form(email: user.email, password: user.password)
+      fill_form(email: s.user.email, password: s.user.password)
       submit_form
     end
   end

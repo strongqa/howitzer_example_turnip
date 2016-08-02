@@ -9,9 +9,9 @@ module LoginSteps
   # WHEN
 
   step "I fill and submit form on login page with check 'Remember me' checkbox" do
-    user = self.user
+    s = self
     LoginPage.on do
-      fill_form(email: user.email, password: user.password, remember_me: 'yes')
+      fill_form(email: s.user.email, password: s.user.password, remember_me: 'yes')
       submit_form
     end
   end
@@ -21,17 +21,17 @@ module LoginSteps
   end
 
   step 'I fill and submit form on login page with blank password field' do
-    user = self.user
+    s = self
     LoginPage.on do
-      fill_form(email: user.email, password: '')
+      fill_form(email: s.user.email, password: '')
       submit_form
     end
   end
 
   step 'I fill and submit form on login page with blank email field' do
-    user = self.user
+    s = self
     LoginPage.on do
-      fill_form(email: '', password: user.password)
+      fill_form(email: '', password: s.user.password)
       submit_form
     end
   end
@@ -44,17 +44,17 @@ module LoginSteps
   end
 
   step 'I fill and submit form on login page with incorrect password data' do
-    user = self.user
+    s = self
     LoginPage.on do
-      fill_form(email: user.email, password: 'incorrect_password')
+      fill_form(email: s.user.email, password: 'incorrect_password')
       submit_form
     end
   end
 
   step 'I fill and submit form on login page with incorrect email data' do
-    user = self.user
+    s = self
     LoginPage.on do
-      fill_form(email: 'incorrect@example.com', password: user.password)
+      fill_form(email: 'incorrect@example.com', password: s.user.password)
       submit_form
     end
   end
@@ -73,7 +73,6 @@ module LoginSteps
   # THEN
 
   step "I should see user's email in email field and filled password field on login form" do
-    user = self.user
     expect(page).to have_text user.email
     expect(page).to have_text user.password
   end

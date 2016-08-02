@@ -11,19 +11,19 @@ module ResetPasswordSteps
   end
 
   step 'I fill and submit form on forgot password page with correct email data' do
-    user = self.user
+    s = self
     ForgotPasswordPage.on do
-      fill_form(email: user.email)
+      fill_form(email: s.user.email)
       submit_form
     end
   end
 
   step 'I fill and submit form on change password page with correct data' do
+    s = self
     self.new_user = build(:user)
-    new_user = self.new_user
     ChangePasswordPage.on do
-      fill_form(new_password: new_user.password,
-                confirm_new_password: new_user.password)
+      fill_form(new_password: s.new_user.password,
+                confirm_new_password: s.new_user.password)
       submit_form
     end
   end
@@ -56,10 +56,10 @@ module ResetPasswordSteps
   end
 
   step 'I fill and submit form on forgot password page with not existent email' do
+    s = self
     self.new_user = build(:user)
-    new_user = self.new_user
     ForgotPasswordPage.on do
-      fill_form(email: new_user.email)
+      fill_form(email: s.new_user.email)
       submit_form
     end
   end

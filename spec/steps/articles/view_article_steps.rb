@@ -11,17 +11,17 @@ module ViewArticleSteps
   # THEN
 
   step 'I should see correct article data on article page' do
-    article = self.article
+    s = self
     ArticlePage.on do
-      expect(text).to include(article.title)
-      expect(text).to include(article.text)
+      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.text)
     end
   end
 
   step 'I should see admin user comment on article page with correct comment and commenter data' do
-    comment = self.comment
+    s = self
     ArticlePage.on do
-      expect(text).to include(comment.body)
+      expect(text).to include(s.comment.body)
       expect(text).to include("admin@strongqa.com")
     end
   end
@@ -35,11 +35,11 @@ module ViewArticleSteps
   end
 
   step 'I should see buttons: edit article, destroy comment, create comment on article page' do
-    comment = self.comment
+    s = self
     ArticlePage.on do
       is_expected.to have_edit_article_button_element
       is_expected.to have_add_comment_button_element
-      is_expected.to have_destroy_comment_element(comment.body)
+      is_expected.to have_destroy_comment_element(s.comment.body)
     end
   end
 

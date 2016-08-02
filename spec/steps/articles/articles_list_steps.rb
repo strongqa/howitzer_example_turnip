@@ -7,10 +7,10 @@ module ArticlesListSteps
   # THEN
 
   step 'I should see article in articles list page with correct article parameters' do
-    article = self.article
+    s = self
     ArticleListPage.on do
-      expect(text).to include(article.title)
-      expect(text).to include(article.text)
+      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.text)
     end
   end
 

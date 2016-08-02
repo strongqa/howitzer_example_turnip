@@ -11,10 +11,10 @@ module AddCommentSteps
   # WHEN
 
   step 'I fill and submit new comment form on article page' do
+    s = self
     self.comment = build(:comment)
-    comment = self.comment
     ArticlePage.on do
-      fill_comment_form(body: comment.body)
+      fill_comment_form(body: s.comment.body)
       submit_form
     end
   end
@@ -29,8 +29,8 @@ module AddCommentSteps
   # THEN
 
   step 'I should see created comment on article page' do
-    comment = self.comment
-    ArticlePage.on { expect(text).to include(comment.body) }
+    s = self
+    ArticlePage.on { expect(text).to include(s.comment.body) }
   end
 
 end

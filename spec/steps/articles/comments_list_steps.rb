@@ -14,13 +14,12 @@ module CommentsListSteps
   # THEN
 
   step "I should see comments to this article with user's email in 'Commenter' heads" do
-    comment1 = self.comment1
-    comment2 = self.comment2
+    s = self
     ArticlePage.on do
-      expect(text).to include(comment1.body)
-      expect(text).to include(comment2.body)
-      expect(text).to include(comment1.user.email)
-      expect(text).to include(comment2.user.email)
+      expect(text).to include(s.comment1.body)
+      expect(text).to include(s.comment2.body)
+      expect(text).to include(s.comment1.user.email)
+      expect(text).to include(s.comment2.user.email)
     end
   end
 

@@ -5,15 +5,15 @@ module ViewUserSteps
   # WHEN
 
   step 'I click on user1 email on users page' do
-    user1 = self.user1
+    s = self
     UsersPage.open
-    UsersPage.on { open_user(user1.email) }
+    UsersPage.on { open_user(s.user1.email) }
   end
 
   step 'I click on my email on users page' do
-    user2 = self.user2
+    s = self
     UsersPage.open
-    UsersPage.on { open_user(user2.email) }
+    UsersPage.on { open_user(s.user2.email) }
   end
 
   step 'I click on admin email on users page' do
@@ -24,13 +24,13 @@ module ViewUserSteps
   # THEN
 
   step 'I should see user1 email on users page' do
-    user1 = self.user1
-    UserViewPage.on { expect(text).to include(user1.email) }
+    s = self
+    UserViewPage.on { expect(text).to include(s.user1.email) }
   end
 
   step 'I should see my email on users page' do
-    user2 = self.user2
-    UserViewPage.on { expect(text).to include(user2.email) }
+    s = self
+    UserViewPage.on { expect(text).to include(s.user2.email) }
   end
 
   step 'I should see admin email on users page' do

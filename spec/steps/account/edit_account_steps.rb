@@ -6,23 +6,21 @@ module EditAccountSteps
   # WHEN
 
   step 'I fill and submit form on edit account page with correct new data' do
+    s = self
     self.new_user = build(:user)
-    user = self.user
-    new_user = self.new_user
     EditAccountPage.on do
-      fill_form(user_name: new_user.name,
-                password: new_user.password,
-                password_confirmation: new_user.password,
-                current_password: user.password)
+      fill_form(user_name: s.new_user.name,
+                password: s.new_user.password,
+                password_confirmation: s.new_user.password,
+                current_password: s.user.password)
       submit_form
     end
   end
 
   step 'I fill form on login page with correct email and new password' do
-    user = self.user
-    new_user = self.new_user
+    s = self
     LoginPage.open
-    LoginPage.on { login_as(user.email, new_user.password) }
+    LoginPage.on { login_as(s.user.email, s.new_user.password) }
   end
 
   step 'I open edit account page' do
@@ -30,15 +28,14 @@ module EditAccountSteps
   end
 
   step 'I fill and submit form on edit account page with correct new email data' do
-    user = self.user
+    s = self
     self.new_user = build(:user)
-    new_user = self.new_user
     EditAccountPage.on do
-      fill_form(user_name: user.name,
-                email: new_user.email,
-                password: user.password,
-                password_confirmation: user.password,
-                current_password: user.password)
+      fill_form(user_name: s.user.name,
+                email: s.new_user.email,
+                password: s.user.password,
+                password_confirmation: s.user.password,
+                current_password: s.user.password)
       submit_form
     end
   end
@@ -48,61 +45,59 @@ module EditAccountSteps
   end
 
   step 'I fill form on login page with correct new email and password' do
-    user = self.user
-    new_user = self.new_user
+    s = self
     LoginPage.open
     LoginPage.on do
-      fill_form(email: new_user.email,
-                password: user.password)
+      fill_form(email: s.new_user.email,
+                password: s.user.password)
       submit_form
     end
   end
 
   step 'I fill and submit form on edit account page with incorrect email' do
-    user = self.user
+    s = self
     EditAccountPage.on do
       fill_form(email: 'test@.ua',
-                current_password: user.password)
+                current_password: s.user.password)
       submit_form
     end
   end
 
   step "I fill and submit form on edit account page with user1 data in 'Email' field" do
-    user1 = self.user1
-    user2 = self.user2
+    s = self
     EditAccountPage.on do
-      fill_form(email: user1.email,
-                current_password: user2.password)
+      fill_form(email: s.user1.email,
+                current_password: s.user2.password)
       submit_form
     end
   end
 
   step "I fill and submit form on edit account page with not correct password in 'Current password' field" do
-    user = self.user
+    s = self
     EditAccountPage.on do
-      fill_form(password: user.password,
-                password_confirmation: user.password,
+      fill_form(password: s.user.password,
+                password_confirmation: s.user.password,
                 current_password: 'incorrect_password')
       submit_form
     end
   end
 
   step "I fill and submit form on edit account page with not identical data in 'Password' and 'Passsword confirmation' fields" do
-    user = self.user
+    s = self
     EditAccountPage.on do
       fill_form(password: '12345678',
                 password_confirmation: '123456789',
-                current_password: user.password)
+                current_password: s.user.password)
       submit_form
     end
   end
 
   step "I fill and submit form on edit account page with data less then 8 characters in 'Password' and 'Passsword confirmation' fields" do
-    user = self.user
+    s = self
     EditAccountPage.on do
       fill_form(password: '1234567',
                 password_confirmation: '1234567',
-                current_password: user.password)
+                current_password: s.user.password)
       submit_form
     end
   end
@@ -110,12 +105,11 @@ module EditAccountSteps
   # THEN
 
   step 'I should see newly created data' do
-    user = self.user
-    new_user = self.new_user
+    s = self
     EditAccountPage.open
     EditAccountPage.on do
-      expect(form_data).to eq({user_name: new_user.name,
-                               email: user.email,
+      expect(form_data).to eq({user_name: s.new_user.name,
+                               email: s.user.email,
                                password: '',
                                password_confirmation: '',
                                current_password: ''})
