@@ -18,7 +18,7 @@ module Turnip::Steps
   end
 
   step 'there is user in the system' do
-    self.user = build(:user).save!
+    self.user = create(:user)
   end
 
   step 'I am logged to the system as user' do
@@ -28,7 +28,7 @@ module Turnip::Steps
   end
 
   step 'there is an article' do
-    self.article = build(:article).save!
+    self.article = create(:article)
   end
 
   step 'I am on articles list page' do
@@ -40,11 +40,11 @@ module Turnip::Steps
   end
 
   step 'there is user1 in the system' do
-    self.user1 = build(:user).save!
+    self.user1 = create(:user)
   end
 
   step 'there is user2 in the system' do
-    self.user2 = build(:user).save!
+    self.user2 = create(:user)
   end
 
   step 'I am logged to the system as user2' do
