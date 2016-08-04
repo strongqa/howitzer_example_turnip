@@ -15,3 +15,6 @@ gem 'factory_girl'
 
 gem 'rspec', '~>3.2'
 gem 'turnip'
+
+gem 'pry'
+gem 'pry-byebug'
