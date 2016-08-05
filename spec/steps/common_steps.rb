@@ -83,7 +83,6 @@ module Turnip::Steps
   step 'I fill and submit form on sign up page with correct data' do
     s = self
     self.user=build(:user)
-    SignUpPage.open
     SignUpPage.on do
       fill_form(user_name: s.user.name,
                 email: s.user.email,
