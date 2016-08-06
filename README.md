@@ -7,7 +7,7 @@ Howitzer Example Turnip
 [travis]: https://travis-ci.org/strongqa/howitzer_example_turnip
 [gemnasium]: https://gemnasium.com/strongqa/howitzer_example_turnip
 
-Howitzer example project based on Cucumber for demo web application http://demoapp.strongqa.com
+Howitzer example project based on Turnip for demo web application http://demoapp.strongqa.com
 
 ## Requirements
 
