@@ -8,11 +8,13 @@ module EditAccountSteps
     s = self
     self.new_user = build(:user)
     EditAccountPage.on do
-      fill_form(user_name: s.new_user.name,
-                email: s.user.email,
-                password: s.new_user.password,
-                password_confirmation: s.new_user.password,
-                current_password: s.user.password)
+      fill_form(
+        user_name: s.new_user.name,
+        email: s.user.email,
+        password: s.new_user.password,
+        password_confirmation: s.new_user.password,
+        current_password: s.user.password
+      )
       submit_form
     end
   end
@@ -31,11 +33,13 @@ module EditAccountSteps
     s = self
     self.new_user = build(:user)
     EditAccountPage.on do
-      fill_form(user_name: s.user.name,
-                email: s.new_user.email,
-                password: s.user.password,
-                password_confirmation: s.user.password,
-                current_password: s.user.password)
+      fill_form(
+        user_name: s.user.name,
+        email: s.new_user.email,
+        password: s.user.password,
+        password_confirmation: s.user.password,
+        current_password: s.user.password
+      )
       submit_form
     end
   end
@@ -48,8 +52,10 @@ module EditAccountSteps
     s = self
     LoginPage.open
     LoginPage.on do
-      fill_form(email: s.new_user.email,
-                password: s.user.password)
+      fill_form(
+        email: s.new_user.email,
+        password: s.user.password
+      )
       submit_form
     end
   end
@@ -57,8 +63,11 @@ module EditAccountSteps
   step 'I fill and submit form on edit account page with incorrect email' do
     s = self
     EditAccountPage.on do
-      fill_form(email: 'test@.ua',
-                current_password: s.user.password)
+      fill_form(
+        user_name: s.user.name,
+        email: 'test@.ua',
+        current_password: s.user.password
+      )
       submit_form
     end
   end
@@ -66,8 +75,11 @@ module EditAccountSteps
   step "I fill and submit form on edit account page with user1 data in 'Email' field" do
     s = self
     EditAccountPage.on do
-      fill_form(email: s.user1.email,
-                current_password: s.user2.password)
+      fill_form(
+        user_name: s.user1.name,
+        email: s.user1.email,
+        current_password: s.user2.password
+      )
       submit_form
     end
   end
@@ -75,9 +87,13 @@ module EditAccountSteps
   step "I fill and submit form on edit account page with not correct password in 'Current password' field" do
     s = self
     EditAccountPage.on do
-      fill_form(password: s.user.password,
-                password_confirmation: s.user.password,
-                current_password: 'incorrect_password')
+      fill_form(
+        user_name: s.user.name,
+        email: s.user.email,
+        password: s.user.password,
+        password_confirmation: s.user.password,
+        current_password: 'incorrect_password'
+      )
       submit_form
     end
   end
@@ -85,9 +101,13 @@ module EditAccountSteps
   step "I fill and submit form on edit account page with different 'Password' and 'Passsword confirmation' fields" do
     s = self
     EditAccountPage.on do
-      fill_form(password: '12345678',
-                password_confirmation: '123456789',
-                current_password: s.user.password)
+      fill_form(
+        user_name: s.user.name,
+        email: s.user.email,
+        password: '12345678',
+        password_confirmation: '123456789',
+        current_password: s.user.password
+      )
       submit_form
     end
   end
@@ -96,9 +116,13 @@ module EditAccountSteps
        " in 'Password' and 'Passsword confirmation' fields" do
     s = self
     EditAccountPage.on do
-      fill_form(password: '1234567',
-                password_confirmation: '1234567',
-                current_password: s.user.password)
+      fill_form(
+        user_name: s.user.name,
+        email: s.user.email,
+        password: '1234567',
+        password_confirmation: '1234567',
+        current_password: s.user.password
+      )
       submit_form
     end
   end
