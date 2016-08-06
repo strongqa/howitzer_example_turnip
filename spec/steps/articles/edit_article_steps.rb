@@ -1,5 +1,4 @@
 module EditArticleSteps
-
   attr_accessor :article
 
   # GIVEN
@@ -27,11 +26,11 @@ module EditArticleSteps
     end
   end
 
-  step "I fill and submit form on edit article page with data less then 5 characters in 'Title' field" do
+  step "I fill and submit form on edit article page with data less than 5 characters in 'Title' field" do
     s = self
     self.article = build(:article)
     EditArticlePage.on do
-      fill_form(title: "1234", text: s.article.text)
+      fill_form(title: '1234', text: s.article.text)
       submit_form
     end
   end
@@ -46,10 +45,9 @@ module EditArticleSteps
     end
   end
 
-  step "I should see following text on edit article page:" do |text|
+  step 'I should see following text on edit article page:' do |text|
     EditArticlePage.on { expect(errors_section.error_message).to eql(text) }
   end
-
 end
 
 RSpec.configure { |c| c.include EditArticleSteps, edit_article_steps: true }

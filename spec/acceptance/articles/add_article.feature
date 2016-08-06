@@ -27,7 +27,7 @@ Feature: Article Adding
   @p1
   Scenario: user can not add article with too short title
     When I click new article button on article list page
-    And I fill and submit form on new article page with data less then 5 characters in 'Title' field
+    And I fill and submit form on new article page with data less than 5 characters in 'Title' field
     Then I should see following text on new article page:
     """
     1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)

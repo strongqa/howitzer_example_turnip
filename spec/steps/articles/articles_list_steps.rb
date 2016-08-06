@@ -1,5 +1,4 @@
 module ArticlesListSteps
-
   # GIVEN
 
   # WHEN
@@ -13,7 +12,6 @@ module ArticlesListSteps
       expect(text).to include(s.article.text)
     end
   end
-
 end
 
 RSpec.configure { |c| c.include ArticlesListSteps, articles_list_steps: true }

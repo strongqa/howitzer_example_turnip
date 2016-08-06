@@ -1,5 +1,4 @@
 module ViewUserSteps
-
   # GIVEN
 
   # WHEN
@@ -36,7 +35,6 @@ module ViewUserSteps
   step 'I should see admin email on users page' do
     UserViewPage.on { expect(text).to include(settings.def_test_user) }
   end
-
 end
 
 RSpec.configure { |c| c.include ViewUserSteps, view_user_steps: true }

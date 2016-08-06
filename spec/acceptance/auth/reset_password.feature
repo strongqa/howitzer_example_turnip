@@ -37,7 +37,7 @@ Feature: Password Resetting
     """
     1 error prohibited this user from being saved: Password confirmation doesn't match Password
     """
-    When I fill and submit form on change password page with identical data less then 8 characters
+    When I fill and submit form on change password page with identical data less than 8 characters
     Then I should see following text on change password page:
     """
     1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)

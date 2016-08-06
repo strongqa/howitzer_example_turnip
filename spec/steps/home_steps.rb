@@ -1,5 +1,4 @@
 module HomeSteps
-
   # GIVEN
 
   # WHEN
@@ -10,7 +9,6 @@ module HomeSteps
     s = self
     HomePage.on { expect(find_form_text('Today')).to include(s.article.title) }
   end
-
 end
 
 RSpec.configure { |c| c.include HomeSteps, home_steps: true }

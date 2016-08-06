@@ -1,5 +1,4 @@
 module AddArticleSteps
-
   attr_accessor :article
 
   # GIVEN
@@ -26,11 +25,11 @@ module AddArticleSteps
     end
   end
 
-  step "I fill and submit form on new article page with data less then 5 characters in 'Title' field" do
+  step "I fill and submit form on new article page with data less than 5 characters in 'Title' field" do
     s = self
     self.article = build(:article)
     NewArticlePage.on do
-      fill_form(title: "1234", text: s.article.text)
+      fill_form(title: '1234', text: s.article.text)
       submit_form
     end
   end
@@ -56,7 +55,6 @@ module AddArticleSteps
   step 'I should see following text on new article page:' do |text|
     expect(NewArticlePage.given.text).to include(text)
   end
-
 end
 
 RSpec.configure { |c| c.include AddArticleSteps, add_article_steps: true }

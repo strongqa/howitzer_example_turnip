@@ -1,5 +1,4 @@
 module ViewArticleSteps
-
   # GIVEN
 
   # WHEN
@@ -22,7 +21,7 @@ module ViewArticleSteps
     s = self
     ArticlePage.on do
       expect(text).to include(s.comment.body)
-      expect(text).to include("admin@strongqa.com")
+      expect(text).to include('admin@strongqa.com')
     end
   end
 
@@ -46,7 +45,6 @@ module ViewArticleSteps
   step 'I should be redirected to article list page' do
     ArticleListPage.given
   end
-
 end
 
 RSpec.configure { |c| c.include ViewArticleSteps, view_article_steps: true }

@@ -1,6 +1,6 @@
 @signup_steps
 Feature: Sign Up
-  As user 
+  As user
   I want to sign up to the system
   So I can login with a new account
 
@@ -37,7 +37,7 @@ Feature: Sign Up
     Given I am on sign up page
     When I fill and submit form with not email data in 'Email' field
     Then I should see info on sign up page that email data is incorrect
-    When I fill and submit form with identical data less then 8 characters in 'Password' and 'Password confirmation' fields
+    When I fill and submit form with identical data less than 8 chars in 'Password' and 'Password confirmation' fields
     Then I should see info on sign up page that password is too short
     When I fill and submit form with not identical data in 'Password' and 'Password confirmation' fields
     Then I should see info on sign up page that password confirmation doesn't match password

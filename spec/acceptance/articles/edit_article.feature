@@ -26,7 +26,7 @@ Feature: Article Editing
   @p1
   Scenario: user can not edit article with too short title
     When I click edit button on articles list page
-    And I fill and submit form on edit article page with data less then 5 characters in 'Title' field
+    And I fill and submit form on edit article page with data less than 5 characters in 'Title' field
     Then I should see following text on edit article page:
     """
     1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)

@@ -1,5 +1,4 @@
 module DestroyArticleteps
-
   # GIVEN
 
   # WHEN
@@ -15,7 +14,6 @@ module DestroyArticleteps
     s = self
     ArticleListPage.on { expect(text).to_not include(s.article.title) }
   end
-
 end
 
 RSpec.configure { |c| c.include DestroyArticleteps, destroy_article_steps: true }

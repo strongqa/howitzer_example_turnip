@@ -1,5 +1,4 @@
 module EditAccountSteps
-
   attr_accessor :new_user
   # GIVEN
 
@@ -41,7 +40,7 @@ module EditAccountSteps
   end
 
   step 'I confirm new account from confirmation instruction email' do
-    ConfirmationInstructionEmail.find_by_recipient(self.new_user.email).confirm_my_account
+    ConfirmationInstructionEmail.find_by_recipient(new_user.email).confirm_my_account
   end
 
   step 'I fill form on login page with correct new email and password' do
@@ -82,7 +81,7 @@ module EditAccountSteps
     end
   end
 
-  step "I fill and submit form on edit account page with not identical data in 'Password' and 'Passsword confirmation' fields" do
+  step "I fill and submit form on edit account page with different 'Password' and 'Passsword confirmation' fields" do
     s = self
     EditAccountPage.on do
       fill_form(password: '12345678',
@@ -92,7 +91,8 @@ module EditAccountSteps
     end
   end
 
-  step "I fill and submit form on edit account page with data less then 8 characters in 'Password' and 'Passsword confirmation' fields" do
+  step 'I fill and submit form on edit account page less than 8 chars' /
+       " in 'Password' and 'Passsword confirmation' fields" do
     s = self
     EditAccountPage.on do
       fill_form(password: '1234567',
@@ -108,22 +108,21 @@ module EditAccountSteps
     s = self
     EditAccountPage.open
     EditAccountPage.on do
-      expect(form_data).to eq({user_name: s.new_user.name,
-                               email: s.user.email,
-                               password: '',
-                               password_confirmation: '',
-                               current_password: ''})
+      expect(form_data).to eq(user_name: s.new_user.name,
+                              email: s.user.email,
+                              password: '',
+                              password_confirmation: '',
+                              current_password: '')
     end
   end
 
-  step "edit account page should be displayed" do
+  step 'edit account page should be displayed' do
     expect(EditAccountPage).to be_displayed
   end
 
-  step "I should see following text on edit account page:" do |text|
+  step 'I should see following text on edit account page:' do |text|
     EditAccountPage.on { expect(errors_section.error_message).to eql(text) }
   end
-
 end
 
 RSpec.configure { |c| c.include EditAccountSteps, edit_account_steps: true }

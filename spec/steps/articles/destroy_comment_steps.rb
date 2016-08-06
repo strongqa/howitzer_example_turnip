@@ -1,5 +1,4 @@
 module DestroyCommentSteps
-
   # GIVEN
 
   # WHEN
@@ -15,7 +14,6 @@ module DestroyCommentSteps
     s = self
     ArticlePage.on { expect(text).to_not include(s.comment.body) }
   end
-
 end
 
 RSpec.configure { |c| c.include DestroyCommentSteps, destroy_comment_steps: true }

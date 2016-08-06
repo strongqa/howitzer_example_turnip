@@ -77,18 +77,18 @@ Feature: Account Editing
     Given there is user in the system
     And I am logged to the system as user
     And I am on edit account page
-    When I fill and submit form on edit account page with not identical data in 'Password' and 'Passsword confirmation' fields
+    When I fill and submit form on edit account page with different 'Password' and 'Passsword confirmation' fields
     Then I should see following text on edit account page:
     """
     1 error prohibited this user from being saved: Password confirmation doesn't match Password
     """
 
   @p1
-  Scenario: user can not edit account with short password (less then 8 characters)
+  Scenario: user can not edit account with short password (less than 8 characters)
     Given there is user in the system
     And I am logged to the system as user
     And I am on edit account page
-    When I fill and submit form on edit account page with data less then 8 characters in 'Password' and 'Passsword confirmation' fields
+    When I fill and submit form on edit account page less than 8 chars in 'Password' and 'Passsword confirmation' fields
     Then I should see following text on edit account page:
     """
     1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)

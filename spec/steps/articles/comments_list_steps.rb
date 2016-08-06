@@ -1,12 +1,11 @@
 module CommentsListSteps
-
-  attr_accessor :article,:comment1, :comment2
+  attr_accessor :article, :comment1, :comment2
   # GIVEN
 
   step 'there is an article with created by user comments to this article' do
     self.article = create(:article)
-    self.comment1 = self.article.comments.create(body: "comment_1", user_id: self.user.id)
-    self.comment2 = self.article.comments.create(body: "comment_2", user_id: self.user.id)
+    self.comment1 = article.comments.create(body: 'comment_1', user_id: user.id)
+    self.comment2 = article.comments.create(body: 'comment_2', user_id: user.id)
   end
 
   # WHEN
@@ -22,7 +21,6 @@ module CommentsListSteps
       expect(text).to include(s.comment2.user.email)
     end
   end
-
 end
 
 RSpec.configure { |c| c.include CommentsListSteps, comments_list_steps: true }

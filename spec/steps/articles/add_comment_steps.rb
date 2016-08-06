@@ -1,11 +1,10 @@
 module AddCommentSteps
-
   attr_accessor :comment
 
   # GIVEN
 
   step 'I am on an article page' do
-    ArticlePage.open(id: self.article.id)
+    ArticlePage.open(id: article.id)
   end
 
   # WHEN
@@ -32,7 +31,6 @@ module AddCommentSteps
     s = self
     ArticlePage.on { expect(text).to include(s.comment.body) }
   end
-
 end
 
 RSpec.configure { |c| c.include AddCommentSteps, add_comment_steps: true }

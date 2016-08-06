@@ -1,5 +1,4 @@
 module LoginSteps
-
   # GIVEN
 
   # step 'I am on login page' do
@@ -80,7 +79,6 @@ module LoginSteps
   step 'I close my browser' do
     execute_script 'window.close();'
   end
-
 end
 
 RSpec.configure { |c| c.include LoginSteps, login_steps: true }

@@ -10,9 +10,9 @@ module SignupSteps
   end
 
   step 'I confirm account from confirmation email' do
-    ConfirmationInstructionEmail.
-        find_by_recipient(user.email).
-        confirm_my_account
+    ConfirmationInstructionEmail
+      .find_by_recipient(user.email)
+      .confirm_my_account
   end
 
   step 'I fill and submit form with blank all fields' do
@@ -21,22 +21,22 @@ module SignupSteps
 
   step "I fill and submit form with blank 'Password' and 'Password confirmation' fields" do
     s = self
-    self.user=build(:user)
+    self.user = build(:user)
     SignUpPage.on do
       fill_form(user_name: s.user.name,
                 email: s.user.email,
-                password: "",
-                password_confirmation: "")
+                password: '',
+                password_confirmation: '')
       submit_form
     end
   end
 
   step "I fill and submit form with blank 'Email' field" do
     s = self
-    self.user=build(:user)
+    self.user = build(:user)
     SignUpPage.on do
       fill_form(user_name: s.user.name,
-                email: "",
+                email: '',
                 password: s.user.password,
                 password_confirmation: s.user.password)
       submit_form
@@ -45,36 +45,37 @@ module SignupSteps
 
   step "I fill and submit form with not email data in 'Email' field" do
     s = self
-    self.user=build(:user)
+    self.user = build(:user)
     SignUpPage.on do
       fill_form(user_name: s.user.name,
-                email: "not_email_data",
+                email: 'not_email_data',
                 password: s.user.password,
                 password_confirmation: s.user.password)
       submit_form
     end
   end
 
-  step "I fill and submit form with identical data less then 8 characters in 'Password' and 'Password confirmation' fields" do
+  step 'I fill and submit form with identical data less than 8 chars' /
+       " in 'Password' and 'Password confirmation' fields" do
     s = self
-    self.user=build(:user)
+    self.user = build(:user)
     SignUpPage.on do
       fill_form(user_name: s.user.name,
                 email: s.user.email,
-                password: "1234567",
-                password_confirmation: "1234567")
+                password: '1234567',
+                password_confirmation: '1234567')
       submit_form
     end
   end
 
   step "I fill and submit form with not identical data in 'Password' and 'Password confirmation' fields" do
     s = self
-    self.user=build(:user)
+    self.user = build(:user)
     SignUpPage.on do
       fill_form(user_name: s.user.name,
                 email: s.user.email,
                 password: s.user.password,
-                password_confirmation: "1234567")
+                password_confirmation: '1234567')
       submit_form
     end
   end
@@ -93,16 +94,21 @@ module SignupSteps
   # THEN
 
   step 'I should be redirected to sign up page' do
-   SignUpPage.given
+    SignUpPage.given
   end
 
   step 'I should see info on home page that confirmation link has been sent to email address' do
-    HomePage.on { expect(text).to include('A message with a confirmation link has been sent to your email address. Please open the link to activate your account.') }
+    HomePage.on do
+      expect(text).to include(
+        'A message with a confirmation link has been sent to your email address.' /
+        ' Please open the link to activate your account.'
+      )
+    end
   end
 
   step 'I should receive confirmation email' do
-    ConfirmationInstructionEmail.
-        find_by_recipient(self.user.email)
+    ConfirmationInstructionEmail
+      .find_by_recipient(user.email)
   end
 
   step 'I should see info on login page that account was successfully confirmed' do
