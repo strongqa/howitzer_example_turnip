@@ -9,6 +9,7 @@ module EditAccountSteps
     self.new_user = build(:user)
     EditAccountPage.on do
       fill_form(user_name: s.new_user.name,
+                email: s.user.email,
                 password: s.new_user.password,
                 password_confirmation: s.new_user.password,
                 current_password: s.user.password)
