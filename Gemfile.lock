@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: 615a8807dd944d82ee882a668ab07458ed312dc5
+  revision: 06f86478de8d345b565ab5e1615f09a9ed6ac310
   branch: v2.0
   specs:
     howitzer (1.1.0)
@@ -58,7 +58,6 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    json (2.0.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     log4r (1.1.10)
@@ -70,7 +69,6 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    net-http-persistent (2.9.4)
     netrc (0.11.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -127,10 +125,6 @@ GEM
       websocket (~> 1.0)
     sexy_settings (0.0.2)
     slop (3.6.0)
-    testingbot (0.1.7)
-      json
-      net-http-persistent
-      selenium-webdriver
     thread_safe (0.3.5)
     turnip (2.1.1)
       gherkin (~> 2.5)
@@ -162,7 +156,6 @@ DEPENDENCIES
   rest-client
   rspec (~> 3.2)
   rubocop
-  testingbot
   turnip
 
 BUNDLED WITH
