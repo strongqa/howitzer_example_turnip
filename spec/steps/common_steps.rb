@@ -11,7 +11,7 @@ module Turnip::Steps
 
   step 'I am logged to the system as admin user' do
     LoginPage.open
-    LoginPage.on { login_as(settings.def_test_user, settings.def_test_pass) }
+    LoginPage.on { login_as(settings.app_test_user, settings.app_test_pass) }
   end
 
   step 'I am on :page page', &:open
@@ -60,7 +60,7 @@ module Turnip::Steps
     self.article = create(:article)
     self.comment = article.comments.create(
       body: 'Some comment',
-      user_id: User.where(email: settings.def_test_user).all.first.id
+      user_id: User.where(email: settings.app_test_user).all.first.id
     )
   end
 

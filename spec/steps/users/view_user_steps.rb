@@ -17,7 +17,7 @@ module ViewUserSteps
 
   step 'I click on admin email on users page' do
     UsersPage.open
-    UsersPage.on { open_user(settings.def_test_user) }
+    UsersPage.on { open_user(settings.app_test_user) }
   end
 
   # THEN
@@ -33,7 +33,7 @@ module ViewUserSteps
   end
 
   step 'I should see admin email on users page' do
-    UserViewPage.on { expect(text).to include(settings.def_test_user) }
+    UserViewPage.on { expect(text).to include(settings.app_test_user) }
   end
 end
 
