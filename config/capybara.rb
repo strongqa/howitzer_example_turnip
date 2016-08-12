@@ -1,12 +1,12 @@
 HOWITZER_KNOWN_DRIVERS = [
-    :selenium,
-    :selenium_grid,
-    :webkit,
-    :poltergeist,
-    :phantomjs,
-    :sauce,
-    :testingbot,
-    :browserstack
+  :selenium,
+  :selenium_grid,
+  :webkit,
+  :poltergeist,
+  :phantomjs,
+  :sauce,
+  :testingbot,
+  :browserstack
 ].freeze
 unless HOWITZER_KNOWN_DRIVERS.include?(settings.driver.to_s.to_sym)
   log.error "Unknown '#{settings.driver}' driver. Check your settings, it should be one of #{HOWITZER_KNOWN_DRIVERS}"
@@ -59,9 +59,9 @@ if settings.driver.to_sym == :poltergeist
 
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(
-        app,
-        js_errors: !settings.pjs_ignore_js_errors,
-        phantomjs_options: ["--ignore-ssl-errors=#{settings.pjs_ignore_ssl_errors ? 'yes' : 'no'}"]
+      app,
+      js_errors: !settings.pjs_ignore_js_errors,
+      phantomjs_options: ["--ignore-ssl-errors=#{settings.pjs_ignore_ssl_errors ? 'yes' : 'no'}"]
     )
   end
 end
@@ -70,11 +70,11 @@ end
 
 Capybara.register_driver :phantomjs do |app|
   Capybara::Selenium::Driver.new(
-      app, browser: :phantomjs,
-      desired_capabilities: {
-          javascript_enabled: !settings.pjs_ignore_js_errors
-      },
-      args: ["--ignore-ssl-errors=#{settings.pjs_ignore_ssl_errors ? 'yes' : 'no'}"]
+    app, browser: :phantomjs,
+         desired_capabilities: {
+           javascript_enabled: !settings.pjs_ignore_js_errors
+         },
+         args: ["--ignore-ssl-errors=#{settings.pjs_ignore_ssl_errors ? 'yes' : 'no'}"]
   )
 end
 
@@ -82,10 +82,10 @@ end
 
 Capybara.register_driver :sauce do |app|
   caps = required_cloud_caps.merge(
-      maxDuration: settings.cloud_max_duration,
-      idleTimeout: settings.cloud_sauce_idle_timeout,
-      recordScreenshots: settings.cloud_sauce_record_screenshot,
-      videoUploadOnPass: settings.cloud_sauce_video_upload_on_pass
+    maxDuration: settings.cloud_max_duration,
+    idleTimeout: settings.cloud_sauce_idle_timeout,
+    recordScreenshots: settings.cloud_sauce_record_screenshot,
+    videoUploadOnPass: settings.cloud_sauce_video_upload_on_pass
   )
   url = "http://#{settings.cloud_auth_login}:#{settings.cloud_auth_pass}@ondemand.saucelabs.com:80/wd/hub"
   cloud_driver(app, caps, url)
@@ -95,9 +95,9 @@ end
 
 Capybara.register_driver :testingbot do |app|
   caps = required_cloud_caps.merge(
-      maxduration: settings.cloud_max_duration,
-      idletimeout: settings.cloud_testingbot_idle_timeout,
-      screenshot: settings.cloud_testingbot_screenshots
+    maxduration: settings.cloud_max_duration,
+    idletimeout: settings.cloud_testingbot_idle_timeout,
+    screenshot: settings.cloud_testingbot_screenshots
   )
   url = "http://#{settings.cloud_auth_login}:#{settings.cloud_auth_pass}@hub.testingbot.com/wd/hub"
   cloud_driver(app, caps, url)
@@ -107,8 +107,8 @@ end
 
 Capybara.register_driver :browserstack do |app|
   caps = required_cloud_caps.merge(
-      project: settings.cloud_bstack_project,
-      build: settings.cloud_bstack_build
+    project: settings.cloud_bstack_project,
+    build: settings.cloud_bstack_build
   )
   caps[:resolution] = settings.cloud_bstack_resolution if settings.cloud_bstack_resolution.present?
   caps[:device] = settings.cloud_bstack_mobile_device if settings.cloud_bstack_mobile_device.present?
