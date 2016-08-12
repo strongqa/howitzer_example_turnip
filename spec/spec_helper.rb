@@ -17,27 +17,23 @@ RSpec.configure do |config|
   config.disable_monkey_patching = true
   config.color = true
 
-  config.before(:all) do
-    log.print_feature_name(self.class.description.empty? ? self.class.metadata[:description] : self.class.description)
-    if cloud_driver?
-      suite_name = "#{ENV['RAKE_TASK'].to_s.upcase} #{settings.cloud_browser_name.upcase}"
-      Capybara.drivers[settings.driver.to_sym][].options[:desired_capabilities][:name] = suite_name
-      Capybara.current_session # we force new session creating to register at_exit callback on browser method
-    end
-  end
-
-  config.before(type: :feature) do
-    log.print_scenario_name(self.class.description.empty? ? self.class.metadata[:description] : self.class.description)
+  config.before(:each) do
+    scenario_name =
+      if RSpec.current_example.description.empty?
+        RSpec.current_example.metadata[:full_description]
+      else
+        RSpec.current_example.description
+      end
+    log.print_scenario_name(scenario_name)
     @session_start = duration(Time.now.utc - cache.extract(:cloud, :start_time))
   end
 
   config.after(:each) do
-    cache.clear_all_ns
+    Howitzer::Utils::DataStorage.clear_all_ns
     if cloud_driver?
       session_end = duration(Time.now.utc - cache.extract(:cloud, :start_time))
       log.info "CLOUD VIDEO #{@session_start} - #{session_end}" \
                " URL: #{cloud_resource_path(:video)}"
-
     elsif ie_browser?
       log.info 'IE reset session'
       page.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
