@@ -4,8 +4,8 @@ module CommentsListSteps
 
   step 'there is an article with created by user comments to this article' do
     self.article = create(:article)
-    self.comment1 = article.comments.create(body: 'comment_1', user_id: user.id)
-    self.comment2 = article.comments.create(body: 'comment_2', user_id: user.id)
+    self.comment1 = create(:comment, article: article, user: create(:user, :default))
+    self.comment2 = create(:comment, article: article, user: create(:user, :default))
   end
 
   # WHEN
