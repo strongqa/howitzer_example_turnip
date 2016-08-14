@@ -56,15 +56,12 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.14)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     gli (2.14.0)
-    her (0.6.8)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      faraday (~> 0.8)
-      multi_json (~> 1.7)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -131,6 +128,12 @@ GEM
       websocket (~> 1.0)
     sexy_settings (0.0.2)
     slop (3.6.0)
+    spyke (4.1.1)
+      activemodel (>= 4.0.0, < 6.0)
+      activesupport (>= 4.0.0, < 6.0)
+      faraday (>= 0.9.0, < 2.0)
+      faraday_middleware (>= 0.9.1, < 2.0)
+      uri_template (>= 0.7.0, < 2.0)
     thread_safe (0.3.5)
     turnip (2.1.1)
       gherkin (~> 2.5)
@@ -141,6 +144,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     unicode-display_width (1.1.0)
+    uri_template (0.7.0)
     websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
@@ -153,8 +157,8 @@ PLATFORMS
 
 DEPENDENCIES
   factory_girl
-  her
   howitzer!
+  multi_json
   poltergeist!
   pry
   pry-byebug
@@ -162,6 +166,7 @@ DEPENDENCIES
   rest-client
   rspec (~> 3.2)
   rubocop
+  spyke
   turnip
 
 BUNDLED WITH
