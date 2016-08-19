@@ -1,12 +1,10 @@
+
 require 'rake'
 require 'rake/clean'
 require 'howitzer'
 require 'rubocop/rake_task'
 
 load 'howitzer/tasks/framework.rake'
-
-Dir.chdir(File.join(__dir__, '.'))
-
 RuboCop::RakeTask.new
 
 if Howitzer.required_clean_logs
@@ -14,5 +12,10 @@ if Howitzer.required_clean_logs
   Rake::Task[:clean].invoke
 end
 
-Dir['tasks/**/*.rake'].each { |rake| load rake }
-ENV['RAKE_TASK'] = ARGV[0] if /^features/ === ARGV[0]
+module Howitzer
+  class << self
+    attr_accessor :current_rake_task
+  end
+end
+
+Dir['./tasks/**/*.rake'].each { |rake| load rake }
