@@ -2,6 +2,12 @@ language: ruby
 rvm:
   - 2.3.1
 env:
+  global:
+    - ARTIFACTS_DEBUG=0
+    - ARTIFACTS_REGION="eu-west-1"
+    - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
+
+  matrix:
   - SEXY_SETTINGS=driver=phantomjs
   - SEXY_SETTINGS=driver=poltergeist
   - secure: "Xc150GEIwadD3wf6aFwrWRsd0hUFHB0NHliPfGByelItrsF2vxNCiV9k1WgWqL2YF2v3DZ/4YINOIMyCJmIJ1EzETzW823iC6pMwiPdn1TGEzUEKZlLbZcHuNUuq+SK0++rcl9oc6NAyocuL1QolcO2SRc9N3ZtwvY+QxfRe75OM5xv2HSnDRVM6zcrNsvlpNCeo+S1Mvqv9Ic1RHWvLLa2UJlJK+YtE4hgeGv8byLEFcU/49uxSTyDvr710sJTme9FMig0UQQ1ePNR3oJU/SQ2txF0F1VBvaYjiIUhB6ibkyNr++80iXm/hU1ihB8YlqYqzZBOyOgEL77r+zDmD9Gm8mmTdxeSnGhVlLJasJqVqMKaEZsfhAdjqtHqEYBy4ZvG2smIQhqW04q5PZdQng2asIJLnTSxmjk31iOMOaYDdube/PJMJZdz5Y5fb3apUcKxM/kM3zk6CMhyG2H0YJS/gpkAcLsqz7X5DZwjc0NfPnSTiE0kiS0Wa2AYbT4QAZKYKhmNaied5g85s8qrX6vQ/08nkUSp6p3jfmsYlOli/3HxTwumVcMLkwr+hDjk72qLihQt8sAECmTegP136VqwGg2jNdq653vMGmI0iHAXFc0m+W4oTik1PO1ZGicc+svJM72IjVjWwW9kth8htsu5t7UnmoyETNOxsJ1wBhDo=" #driver=sauce
@@ -9,3 +15,12 @@ env:
   - secure: "qFJSJLpF0j4IdDa1NBBmjqo2Z0VSoiRS+XqJcm2nygqkTjVhCe3I4c06He5evyUsihX/yQjsvn4+cMoRww3BADc7rutRBMQ1cnzh03wGFJkTYJ3nhYev8KU+uxzx/ORY+lBVj7Igo+osYA570ZNSI3ce4cOIIQrZvF+w8Izu1kUN5hOdfxZy4Ezn4zT5K8AxV/tauh8w4Dfb1Ekuo0FwTs1q78ej44sbhCmQJ4nLAAQWa0aNQPWbdm3IFioiT9bSZPU4E74rRHmiNdEikumW/cs/98QyR2Ipnx4mZF8V6D49Wtdp7fruerxvq48PmlBjWxNXkP8gXO2G6O0U1Qm+ZkbGiYT/tjxh4O3AIrnxp22H16mjP92sQPDjqqBCOxOUX5wLc81UODI/ZwLLtAwdo/WqVSstBLQ1g5fm/pAXG662f8mq0cg4+DplXDl3bptO5mHGNb5Bxpq1ddTKUFOjMvi0Aymv61Cc1aRejtlKNXOx2iqu0BYte9x5DBWBL7iqhZTuEWu7GX5/Kyj3dSSI+dctxEHM0eiOQ2qx5/gt77mLv8CNS8BE8YSh9TZ5U4Lby5aPAvhSLJOqCSK6JRytg7pUaG5cmVEt7Po9tjz1AupSKdYj3ivou3XxpziiULq1Y9Rq2D6hoaSSExOfbOq/yMwmxJBRC0up86QaNpRgLY8=" #driver=browserstack
 
 script: ./scripts/run-tests.sh
+
+addons:
+  artifacts:
+    key:
+      secure: "tl9wQBEixzs8Aun9J/yI1LlfROy8ADrieKq+Uz2XMuTGVKnNVAhBBF0JuVJmQjtL+xt28fNWNQZ/YaZLgd3kj5PAe0zQB6oPbkexLcS00JzMul2YvGCNviFeJVmSN8Fh1h6Z98ePTm7Uk4Hypx2DMResCzjKXsbDGev81ZIz3QYhlPemb5+ngq8bzOsjEuS/iymK224IDOcZ8VMfg5Xy+ICH70euB0d2N5iFOw7treRYdd7cSu72izG/j6JmjMGe1I77zk7WKWqg4powY4nHmCxz4X9+djXdd9+132OQ00WoQd2sWLZ82OKfwDAuOFRFSBY14hMu36lROGdHBjjggK7YqblY1KajuDYsq/j21y1tAGDLcDprcxoTCNnt22bAKjkxOciKmfvB+5Tl6OVZALo4pmNNInMK/fiTAH7HKwHRtW1XLOwa9FH6AQWlt6WWEwAU/X0HUEPQ1hmXJUVFe96oAPGJaPZPl3EAalfWKoTtJgMXq/5ltZyAX76rlex9zs4V6FJrIty3KyRyTiy2krXG60SRDGDzWWxH1n0Rt0GlRM5FvEEn8wKTJ0dY3qk6AZ5tviwZu698q25VcZ+6q35tgBZT+TN5I/vWh5XpTaoZ14cGkXhw5BUcI8sj6Gckciomj5C2jqaj6hxnUtBd2TNCfarBuPn1imOFUlAxo8s="
+    secret:
+      secure: "Z9lVKJmztSwaXr9/sWBmbJKDRcqfEj9ESFAt7NVbNTMcLo1CPsc2hJLdl/YjuqpBNbshFe2FtP+3es6vkzkFMow4+SiuDtu5H+v7SeC17XgDZHeO2gl/ULTIapoBZZJzsAa6CGjbx8zbrhEdjSzUqgOBN6j3CRUniGRFUmsTslf8n+UAm33DwYVwiA4LZBiy5X6vT/qE77sHKieET6m8ZYJPG97RTIgupXYI3zx2nl5JsA+TGduxI4rDEtV+aLiwZCCdN/uImaDz5oQLkQmxyi51E4gczKjN68jNLJSgVyUqRPoiu1cvMIJ5ypaj+Z25+RYZN6T2gMKYNEFl7gMRJ9lRi1mQbsCfmKnGFzMYccBRKHvcdWS4gBOdh3xEuA0s0qazwSrnQo4yWK9+lXX+4p6UTHH/b4fDaqZNFsBgJTGT1+m3tOrakdH3waP5Ij+g0qRWSUK47PSEfwJFp1PkztgIf2vjVDIbzgLOcYr/j5Rsjb+cMYoD4lOSLMcX1EWl6cGkDj4LNE3Il7qMWZGFv4AcsOU8TqBjQk45Va4do94HhARFLfsMijLqCff7dvkaS34IKpMiYWv12ut/XmNTiXmPRnajZ5QLbxMoV/ey/aWJKXaQnJPEulwMsyc4saGzN+i5FsLMk3WnnOl3xDtqpELe9z//uP22VbB1yg2nqgQ="    bucket: howitzer-example-travis
+    paths:
+      - $(find log -type f | tr "\n" ":")
