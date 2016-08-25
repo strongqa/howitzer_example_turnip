@@ -21,7 +21,7 @@ module ViewArticleSteps
     s = self
     ArticlePage.on do
       expect(text).to include(s.comment.body)
-      expect(text).to include('admin@strongqa.com')
+      expect(text).to include(s.comment.user.email)
     end
   end
 
