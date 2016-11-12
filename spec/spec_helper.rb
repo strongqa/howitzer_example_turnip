@@ -1,4 +1,3 @@
-require 'capybara-screenshot/rspec'
 require_relative '../config/boot'
 require_relative '../config/capybara'
 
@@ -34,7 +33,7 @@ RSpec.configure do |config|
                " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
     elsif CapybaraHelpers.ie_browser?
       Howitzer::Log.info 'IE reset session'
-      page.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
+      Capybara.current_session.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
     end
     Capybara.reset_sessions!
     Capybara.use_default_driver
@@ -54,3 +53,11 @@ RSpec.configure do |config|
     end
   end
 end
+
+# We include Capybara::DSL in Howitzer::Web::Page, but capybara-screenshot hooks rely on this mixin.
+RSpec::Core::ExampleGroup.instance_eval do
+  def include?(value)
+    value == Capybara::DSL ? true : super
+  end
+end
+require 'capybara-screenshot/rspec'

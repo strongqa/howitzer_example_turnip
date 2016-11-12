@@ -7,7 +7,7 @@ module HomeSteps
 
   step 'I should see today form on home page with correct article title' do
     s = self
-    HomePage.on { expect(find_form_text('Today')).to include(s.article.title) }
+    HomePage.on { expect(find_form_text('Today1')).to include(s.article.title) }
   end
 end
 
