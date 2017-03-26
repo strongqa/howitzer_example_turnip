@@ -44,7 +44,7 @@ module ResetPasswordSteps
   end
 
   step 'I receive and confirm resetting password from confirmation email' do
-    ResetPasswordConfirmationEmail.find_by_recipient(user.email).confirm_my_account
+    ResetPasswordConfirmationEmail.find_by_recipient(user.email).reset_password
   end
 
   step 'I fill and submit form on forgot password page with blank email field' do

@@ -1,7 +1,7 @@
 .idea/
 custom.yml
 bin/
-log/
+/log
 eylogs/
 spec/results/
 spec/sandbox/

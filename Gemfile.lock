@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/strongqa/howitzer.git
+  remote: https://github.com/strongqa/howitzer.git
   revision: 20e369db6d790ee3f484b84fa2f1bca34e894d78
   branch: master
   specs:
@@ -16,7 +16,7 @@ GIT
       sexy_settings
 
 GIT
-  remote: git://github.com/teampoltergeist/poltergeist.git
+  remote: https://github.com/teampoltergeist/poltergeist.git
   revision: f7a8e970562fd1f912b39a0acc1afe7761d16a30
   branch: master
   specs:
