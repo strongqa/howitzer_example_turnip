@@ -3,10 +3,8 @@ Howitzer Example Turnip
 
 [![Build Status](https://travis-ci.org/strongqa/howitzer_example_turnip.svg?branch=master)][travis]
 [![CircleCI](https://circleci.com/gh/strongqa/howitzer_example_turnip.svg?style=svg&circle-token=c6dac71b26747e0dbb4fd98bab9922943ff455be)](https://circleci.com/gh/strongqa/howitzer_example_turnip)
-[![Dependency Status](https://gemnasium.com/strongqa/howitzer_example_turnip.png)][gemnasium]
 
 [travis]: https://travis-ci.org/strongqa/howitzer_example_turnip
-[gemnasium]: https://gemnasium.com/strongqa/howitzer_example_turnip
 
 Howitzer example project based on Turnip for demo web application http://demoapp.strongqa.com
 
