@@ -4,6 +4,7 @@ sudo: required
 rvm:
   - 2.4.0
 addons:
+  chrome: stable
   apt:
     update: true
 
