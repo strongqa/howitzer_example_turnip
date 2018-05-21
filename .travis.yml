@@ -13,8 +13,6 @@ env:
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
 
   matrix:
-  # - SEXY_SETTINGS=driver=phantomjs
-  # - SEXY_SETTINGS=driver=poltergeist
   - SEXY_SETTINGS=driver=headless_chrome
   - SEXY_SETTINGS=driver=webkit
   - secure: "Xc150GEIwadD3wf6aFwrWRsd0hUFHB0NHliPfGByelItrsF2vxNCiV9k1WgWqL2YF2v3DZ/4YINOIMyCJmIJ1EzETzW823iC6pMwiPdn1TGEzUEKZlLbZcHuNUuq+SK0++rcl9oc6NAyocuL1QolcO2SRc9N3ZtwvY+QxfRe75OM5xv2HSnDRVM6zcrNsvlpNCeo+S1Mvqv9Ic1RHWvLLa2UJlJK+YtE4hgeGv8byLEFcU/49uxSTyDvr710sJTme9FMig0UQQ1ePNR3oJU/SQ2txF0F1VBvaYjiIUhB6ibkyNr++80iXm/hU1ihB8YlqYqzZBOyOgEL77r+zDmD9Gm8mmTdxeSnGhVlLJasJqVqMKaEZsfhAdjqtHqEYBy4ZvG2smIQhqW04q5PZdQng2asIJLnTSxmjk31iOMOaYDdube/PJMJZdz5Y5fb3apUcKxM/kM3zk6CMhyG2H0YJS/gpkAcLsqz7X5DZwjc0NfPnSTiE0kiS0Wa2AYbT4QAZKYKhmNaied5g85s8qrX6vQ/08nkUSp6p3jfmsYlOli/3HxTwumVcMLkwr+hDjk72qLihQt8sAECmTegP136VqwGg2jNdq653vMGmI0iHAXFc0m+W4oTik1PO1ZGicc+svJM72IjVjWwW9kth8htsu5t7UnmoyETNOxsJ1wBhDo=" #driver=sauce
