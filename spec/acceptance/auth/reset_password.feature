@@ -35,12 +35,12 @@ Feature: Password Resetting
     And I fill and submit form on change password page with not identical data
     Then I should see following text on change password page:
     """
-    1 error prohibited this user from being saved: Password confirmation doesn't match Password
+    1 error must be fixed Password confirmation doesn't match Password
     """
     When I fill and submit form on change password page with identical data less than 8 characters
     Then I should see following text on change password page:
     """
-    1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)
+    1 error must be fixed Password is too short (minimum is 8 characters)
     """
 
   @p1
@@ -51,12 +51,12 @@ Feature: Password Resetting
     And I fill and submit form on forgot password page with blank email field
     Then I should see following text on forgot password page:
     """
-    1 error prohibited this user from being saved: Email can't be blank
+    1 error must be fixed Email can't be blank
     """
     And I fill and submit form on forgot password page with not existent email
     Then I should see following text on forgot password page:
     """
-    1 error prohibited this user from being saved: Email not found
+    1 error must be fixed Email not found
     """
     When I fill and submit form on forgot password page with not email data
     Then forgot password page should be displayed

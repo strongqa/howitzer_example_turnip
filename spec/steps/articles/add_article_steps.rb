@@ -39,7 +39,7 @@ module AddArticleSteps
   step 'I should see newly created article with correct data on article page' do
     s = self
     ArticlePage.on do
-      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.title.upcase)
       expect(text).to include(s.article.text)
     end
   end
@@ -47,13 +47,13 @@ module AddArticleSteps
   step 'I should see newly created article with correct data on article list page' do
     s = self
     ArticleListPage.on do
-      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.title.upcase)
       expect(text).to include(s.article.text)
     end
   end
 
   step 'I should see following text on new article page:' do |text|
-    expect(NewArticlePage.given.text).to include(text)
+    expect(NewArticlePage.given.text.downcase).to include(text.downcase)
   end
 end
 

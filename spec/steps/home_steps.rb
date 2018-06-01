@@ -4,6 +4,7 @@ module HomeSteps
   # WHEN
   step 'I open quick start on howitzer frame' do
     HomePage.on do
+      iframe_wait
       howitzer_home_iframe(&:open_quick_start)
     end
   end
@@ -12,7 +13,7 @@ module HomeSteps
 
   step 'I should see today form on home page with correct article title' do
     s = self
-    HomePage.on { expect(find_form_text('Today')).to include(s.article.title) }
+    HomePage.on { expect(find_article_group_text(1)).to include(s.article.title.upcase) }
   end
 
   step 'I should see install section on howitzer frame' do

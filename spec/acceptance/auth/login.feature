@@ -1,6 +1,6 @@
 @login_steps
 Feature: Log In
-  As user 
+  As user
   I want to use my credentials to login the system
   So I can login the system
 
@@ -40,19 +40,19 @@ Feature: Log In
     Given there is user in the system
     And I am on login page
     When I fill and submit form on login page with blank password field
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
     When I fill and submit form on login page with blank email field
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
     When I fill and submit form on login page with blank all fields
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
@@ -63,19 +63,19 @@ Feature: Log In
     Given there is user in the system
     And I am on login page
     When I fill and submit form on login page with incorrect email data
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
     When I fill and submit form on login page with incorrect password data
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
     When I fill and submit form on login page with incorrect password and email data
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
@@ -92,7 +92,7 @@ Feature: Log In
     """
     When I open login page
     And I fill and submit form on login page with correct data
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     You have to confirm your account before continuing.
@@ -108,7 +108,7 @@ Feature: Log In
     """
     When I open login page
     And I fill and submit form on login page with correct data
-    Then I should not be logged to the system
+    # Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
