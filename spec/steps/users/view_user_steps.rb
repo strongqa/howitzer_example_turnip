@@ -3,16 +3,16 @@ module ViewUserSteps
 
   # WHEN
 
-  step 'I click on user1 email on users page' do
+  step 'I click on user1 name on users page' do
     s = self
     UsersPage.open
-    UsersPage.on { open_user(s.user1.email) }
+    UsersPage.on { open_user(s.user1.name) }
   end
 
-  step 'I click on my email on users page' do
+  step 'I click on my name on users page' do
     s = self
     UsersPage.open
-    UsersPage.on { open_user(s.user2.email) }
+    UsersPage.on { open_user(s.user2.name) }
   end
 
   step 'I click on admin email on users page' do

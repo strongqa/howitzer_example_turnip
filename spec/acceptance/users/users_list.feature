@@ -1,9 +1,10 @@
 @users_list_steps
 Feature: Users List
-  As user 
+  As user
   I want to see users registered in system
   So I can see Users list
-
+ # usual user (not admin) can't see Users list
+  @bug
   Scenario: user is viewing users in Users list
     Given there is user in the system
     And I am logged to the system as user
