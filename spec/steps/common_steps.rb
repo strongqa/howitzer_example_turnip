@@ -1,7 +1,7 @@
 # rubocop:disable Style/ClassAndModuleChildren
 module Turnip::Steps
   # rubocop:enable Style/ClassAndModuleChildren
-  attr_accessor :admin, :user, :user1, :user2, :article, :comment
+  attr_accessor :admin, :admin_user, :user, :user1, :user2, :article, :comment
 
   # GIVEN
 
@@ -15,6 +15,12 @@ module Turnip::Steps
     LoginPage.on do
       login_as(admin.email, admin.password)
     end
+  end
+
+  step 'I am logged to the system as existed admin user' do
+    s = self
+    LoginPage.open
+    LoginPage.on { login_as(s.admin_user.email, s.admin_user.password) }
   end
 
   step 'I am on :page page', &:open
@@ -39,6 +45,10 @@ module Turnip::Steps
 
   step 'I am on edit account page' do
     EditAccountPage.open
+  end
+
+  step 'there is admin user in the system' do
+    self.admin_user = create(:user, :admin)
   end
 
   step 'there is user1 in the system' do
