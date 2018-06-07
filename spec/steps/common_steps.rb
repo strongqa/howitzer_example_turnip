@@ -108,6 +108,10 @@ module Turnip::Steps
     ArticlePage.open(id: article.id)
   end
 
+  step 'I am trying to navigate to users page' do
+    UsersPage.open(validate: false)
+  end
+
   # THEN
 
   step ':page page should be displayed' do |page|
