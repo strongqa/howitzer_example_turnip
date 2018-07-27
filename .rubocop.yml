@@ -37,3 +37,8 @@ Style/MixinGrouping:
 
 Metrics/BlockLength:
   Enabled: false
+
+Style/SymbolProc:
+  Exclude:
+    - 'spec/steps/**/*.rb'
+

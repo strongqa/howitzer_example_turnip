@@ -20,7 +20,7 @@ Feature: Article Editing
     And I fill and submit form on edit article page with blank data
     Then I should see following text on edit article page:
     """
-    2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)
+    1 error prohibited this article from being saved: title can't be blank
     """
 
   @p1
