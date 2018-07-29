@@ -4,7 +4,7 @@ module HomeSteps
   # WHEN
   step 'I open quick start on howitzer frame' do
     HomePage.on do
-      sleep 1 # required to see hte frame
+      wait_for { has_howitzer_home_iframe? }
       howitzer_home_iframe do |frame|
         frame.open_quick_start
       end
