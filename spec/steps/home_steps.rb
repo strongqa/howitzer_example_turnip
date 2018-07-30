@@ -4,7 +4,7 @@ module HomeSteps
   # WHEN
   step 'I open quick start on howitzer frame' do
     HomePage.on do
-      wait_for { has_howitzer_home_iframe? }
+      current_window.resize_to(1920, 1080)
       howitzer_home_iframe do |frame|
         frame.open_quick_start
       end
