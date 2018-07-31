@@ -1,6 +1,6 @@
 @login_steps
 Feature: Log In
-  As user 
+  As user
   I want to use my credentials to login the system
   So I can login the system
 
@@ -40,46 +40,57 @@ Feature: Log In
     Given there is user in the system
     And I am on login page
     When I fill and submit form on login page with blank password field
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system
+    And I open login page
     When I fill and submit form on login page with blank email field
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system
+    And I open login page
     When I fill and submit form on login page with blank all fields
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system
+
 
   @p1
   Scenario: user can not login with incorrect data
     Given there is user in the system
     And I am on login page
     When I fill and submit form on login page with incorrect email data
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system
+    And I open login page
     When I fill and submit form on login page with incorrect password data
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system
+    And I open login page
     When I fill and submit form on login page with incorrect password and email data
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system
 
   Scenario: user can not login until confirmation email is not confirmed
     Given I am on sign up page
@@ -92,11 +103,13 @@ Feature: Log In
     """
     When I open login page
     And I fill and submit form on login page with correct data
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     You have to confirm your account before continuing.
     """
+    And I open home page
+    Then I should not be logged to the system
+
   Scenario: canceled user can not login
     Given there is user in the system
     And I am logged to the system as user
@@ -108,8 +121,9 @@ Feature: Log In
     """
     When I open login page
     And I fill and submit form on login page with correct data
-    Then I should not be logged to the system
     And I should see following text on login page:
     """
     Invalid email or password.
     """
+    And I open home page
+    Then I should not be logged to the system

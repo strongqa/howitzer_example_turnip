@@ -4,9 +4,7 @@
 AllCops:
   TargetRubyVersion: 2.4
   DisplayCopNames: true
-  Include:
-      - Rakefile
-      - Gemfile
+
 
 LineLength:
   Max: 120
@@ -38,4 +36,9 @@ Style/MixinGrouping:
     - '**/*_steps.rb'
 
 Metrics/BlockLength:
-  Enabled: false      
+  Enabled: false
+
+Style/SymbolProc:
+  Exclude:
+    - 'spec/steps/**/*.rb'
+

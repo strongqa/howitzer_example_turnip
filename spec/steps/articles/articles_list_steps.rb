@@ -8,7 +8,7 @@ module ArticlesListSteps
   step 'I should see article in articles list page with correct article parameters' do
     s = self
     ArticleListPage.on do
-      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.title.upcase)
       expect(text).to include(s.article.text)
     end
   end

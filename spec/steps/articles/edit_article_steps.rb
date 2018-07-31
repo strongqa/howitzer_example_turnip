@@ -40,13 +40,13 @@ module EditArticleSteps
   step 'I should see article with new data on article page' do
     s = self
     ArticlePage.on do
-      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.title.upcase)
       expect(text).to include(s.article.text)
     end
   end
 
   step 'I should see following text on edit article page:' do |text|
-    EditArticlePage.on { expect(errors_section.error_message).to eql(text) }
+    EditArticlePage.on { expect(article_errors_section.error_message.downcase).to eql(text.downcase) }
   end
 end
 

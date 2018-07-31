@@ -4,8 +4,8 @@ module CommentsListSteps
 
   step 'there is an article with created by user comments to this article' do
     self.article = create(:article)
-    self.comment1 = create(:comment, article: article, user: create(:user, :default))
-    self.comment2 = create(:comment, article: article, user: create(:user, :default))
+    self.comment1 = create(:comment, article: article, user: create(:user))
+    self.comment2 = create(:comment, article: article, user: create(:user))
   end
 
   # WHEN
@@ -17,8 +17,8 @@ module CommentsListSteps
     ArticlePage.on do
       expect(text).to include(s.comment1.body)
       expect(text).to include(s.comment2.body)
-      expect(text).to include(s.comment1.user.email)
-      expect(text).to include(s.comment2.user.email)
+      expect(text).to include(s.comment1.user.name)
+      expect(text).to include(s.comment2.user.name)
     end
   end
 end

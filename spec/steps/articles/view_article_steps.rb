@@ -12,7 +12,7 @@ module ViewArticleSteps
   step 'I should see correct article data on article page' do
     s = self
     ArticlePage.on do
-      expect(text).to include(s.article.title)
+      expect(text).to include(s.article.title.upcase)
       expect(text).to include(s.article.text)
     end
   end
@@ -21,7 +21,7 @@ module ViewArticleSteps
     s = self
     ArticlePage.on do
       expect(text).to include(s.comment.body)
-      expect(text).to include(s.comment.user.email)
+      expect(text).to include(s.comment.user.name)
     end
   end
 
