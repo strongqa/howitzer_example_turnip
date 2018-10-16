@@ -44,6 +44,8 @@ rake -T
 
 ## Contributing
 
+[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/0)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/0)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/1)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/1)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/2)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/2)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/3)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/3)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/4)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/4)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/5)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/5)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/6)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/6)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/images/7)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_turnip/links/7)
+
 Code quality is controlled by [Rubocop](https://github.com/bbatsov/rubocop)
 
 It is useful to activate rubocop pre-commit git hook for changed files.
