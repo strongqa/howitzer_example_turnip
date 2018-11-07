@@ -42,9 +42,6 @@ GEM
     capybara-screenshot (1.0.21)
       capybara (>= 1.0, < 4)
       launchy
-    capybara-webkit (1.15.0)
-      capybara (>= 2.3, < 4.0)
-      json
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
@@ -200,7 +197,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara-screenshot
-  capybara-webkit
   factory_bot
   howitzer!
   multi_json
@@ -216,4 +212,4 @@ DEPENDENCIES
   turnip
 
 BUNDLED WITH
-   1.16.1
+   1.17.0

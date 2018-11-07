@@ -1,10 +1,6 @@
 module LoginSteps
   # GIVEN
 
-  # step 'I am on login page' do
-  #   LoginPage.open
-  # end
-
   # WHEN
 
   step "I fill and submit form on login page with check 'Remember me' checkbox" do

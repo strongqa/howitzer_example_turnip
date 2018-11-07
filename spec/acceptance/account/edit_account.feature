@@ -7,7 +7,7 @@ Feature: Account Editing
   Scenario: user can edit password and name with correct data
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page with correct new data
     Then I should see following text on home page:
     """
@@ -23,7 +23,7 @@ Feature: Account Editing
   Scenario: user can edit email with correct credentials
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page with correct new email data
     Then I should see following text on home page:
     """
@@ -46,7 +46,7 @@ Feature: Account Editing
   Scenario: user can not edit account with incorrect email
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page with incorrect email
     Then edit account page should be displayed
 
@@ -54,7 +54,7 @@ Feature: Account Editing
     Given there is user1 in the system
     And there is user2 in the system
     And I am logged to the system as user2
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page with user1 data in 'Email' field
     Then I should see following text on edit account page:
     """
@@ -65,7 +65,7 @@ Feature: Account Editing
   Scenario: user can not edit account with incorrect password
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page with not correct password in 'Current password' field
     Then I should see following text on edit account page:
     """
@@ -76,7 +76,7 @@ Feature: Account Editing
   Scenario: user can not edit account with incorrect password confirmation
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page with different 'Password' and 'Passsword confirmation' fields
     Then I should see following text on edit account page:
     """
@@ -87,7 +87,7 @@ Feature: Account Editing
   Scenario: user can not edit account with short password (less than 8 characters)
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I fill and submit form on edit account page less than 8 chars in 'Password' and 'Passsword confirmation' fields
     Then I should see following text on edit account page:
     """

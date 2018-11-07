@@ -7,7 +7,7 @@ Feature: Article Editing
   Background:
     Given there is an article
     And I am logged to the system as admin user
-    And I am on articles list page
+    And I am on articles_list page
 
   Scenario: user can edit article with correct data
     When I click edit button on articles list page

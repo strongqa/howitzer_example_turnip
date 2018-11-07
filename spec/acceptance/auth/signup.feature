@@ -10,8 +10,9 @@ Feature: Sign Up
     When I click sign up menu item on home page
     Then I should be redirected to sign up page
 
+  @smoke
   Scenario: user can sign up with correct credentials
-    Given I am on sign up page
+    Given I am on sign_up page
     When I fill and submit form on sign up page with correct data
     Then I should not be logged to the system
     And I should see info on home page that confirmation link has been sent to email address
@@ -24,7 +25,7 @@ Feature: Sign Up
 
   @p1
   Scenario: user can not sign up with blank data
-    Given I am on sign up page
+    Given I am on sign_up page
     When I fill and submit form with blank all fields
     Then I should see info on sign up page that email and password can't be blank
     When I fill and submit form with blank 'Password' and 'Password confirmation' fields
@@ -34,7 +35,7 @@ Feature: Sign Up
 
   @p1
   Scenario: user can not sign up with incorrect data
-    Given I am on sign up page
+    Given I am on sign_up page
     When I fill and submit form with not email data in 'Email' field
     Then I should see info on sign up page that email data is incorrect
     When I fill and submit form with identical data less than 8 chars in 'Password' and 'Password confirmation' fields
@@ -45,6 +46,6 @@ Feature: Sign Up
   @p1
   Scenario: user cannot sign up with duplicated email
     Given there is user in the system
-    And I am on sign up page
+    And I am on sign_up page
     When I fill and submit form with email data which is already used by user in 'Email' field
     Then I should see info on sign up page that email has already been taken
