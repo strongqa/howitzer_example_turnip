@@ -39,14 +39,6 @@ module Turnip::Steps
     self.article = create(:article)
   end
 
-  step 'I am on articles list page' do
-    ArticleListPage.open
-  end
-
-  step 'I am on edit account page' do
-    EditAccountPage.open
-  end
-
   step 'there is admin user in the system' do
     self.admin_user = create(:user, :admin)
   end
@@ -63,10 +55,6 @@ module Turnip::Steps
     s = self
     LoginPage.open
     LoginPage.on { login_as(s.user2.email, s.user2.password) }
-  end
-
-  step 'I am on sign up page' do
-    SignUpPage.open
   end
 
   step 'there is an article with created by admin user comment to this article' do

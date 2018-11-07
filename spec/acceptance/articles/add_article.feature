@@ -6,8 +6,9 @@ Feature: Article Adding
 
   Background:
     Given I am logged to the system as admin user
-    And I am on articles list page
+    And I am on articles_list page
 
+  @smoke
   Scenario: user can add article with correct data
     When I click new article button on article list page
     And I fill and submit form on new article page with correct data

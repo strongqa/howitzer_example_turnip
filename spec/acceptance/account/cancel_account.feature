@@ -7,7 +7,7 @@ Feature: Account Cancelling
   Scenario: user can cancel his account
     Given there is user in the system
     And I am logged to the system as user
-    And I am on edit account page
+    And I am on edit_account page
     When I click on cancel my account button on edit account page and confirm action
     Then I should see following text on home page:
     """
