@@ -13,7 +13,12 @@ then
     sh -e /etc/init.d/xvfb start &
     sleep 3
 fi
-bundle exec rake rubocop features:smoke
+if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
+then
+    bundle exec rake rubocop features:smoke_except
+else
+    bundle exec rake rubocop features:smoke
+fi
 shopt -s nocasematch;
 if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*poltergeist|headless_chrome|webkit.* ]]
 then
