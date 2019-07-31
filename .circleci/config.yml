@@ -8,5 +8,16 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
-        - run: bundle install --without webkit
+    # Restore bundle cache
+        - type: cache-restore
+          key: example-turnip-{{ checksum "Gemfile.lock" }}
+
+        # Bundle install dependencies
+        - run: bundle install --path vendor/bundle --without webkit
+
+        # Store bundle cache
+        - type: cache-save
+          key: example-turnip-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
         - run: bundle exec rake features:smoke
