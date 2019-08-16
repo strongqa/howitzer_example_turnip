@@ -8,6 +8,11 @@ module ArticlesListSteps
     ArticleListPage.on { open_recent_post(s.article.title) }
   end
 
+  step 'I click on category in right sidebar on article list page' do
+    s = self
+    ArticleListPage.on { open_category_item(s.category.name) }
+  end
+
   # THEN
 
   step 'I should see article in articles list page with correct article parameters' do
@@ -40,6 +45,19 @@ module ArticlesListSteps
       expect(text).to include(s.article.text)
     end
   end
+
+  step 'I should see category of created articles in right sidebar on article list page' do
+    s = self
+    ArticleListPage.on { is_expected.to have_category_item_element(s.category.name) }
+  end
+
+  step 'I should see two articles on categories page' do
+    s = self
+    CategoriesPage.on do
+      is_expected.to have_article_element(s.article1.title)
+      is_expected.to have_article_element(s.article2.title)
+    end
+  end
 end
 
-RSpec.configure { |c| c.include ArticlesListSteps, articles_list_steps: true }
+RSpec.configure { |c| c.include ArticlesListSteps, articles_list_steps: true, articles_filtering: true }

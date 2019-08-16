@@ -1,7 +1,7 @@
 # rubocop:disable Style/ClassAndModuleChildren
 module Turnip::Steps
   # rubocop:enable Style/ClassAndModuleChildren
-  attr_accessor :admin, :admin_user, :user, :user1, :user2, :article, :comment
+  attr_accessor :admin, :admin_user, :user, :user1, :user2, :article, :article1, :article2, :comment, :category
 
   # GIVEN
 
@@ -37,6 +37,20 @@ module Turnip::Steps
 
   step 'there is an article' do
     self.article = create(:article)
+  end
+
+  step 'there is an article category' do
+    self.category = create(:category)
+  end
+
+  step 'there is an article1 with special category' do
+    s = self
+    self.article1 = create(:article, category: s.category)
+  end
+
+  step 'there is an article2 with special category' do
+    s = self
+    self.article2 = create(:article, category: s.category)
   end
 
   step 'I am on articles list page' do
@@ -84,6 +98,10 @@ module Turnip::Steps
 
   step 'I open articles list page' do
     ArticleListPage.open
+  end
+
+  step 'I open categories list page' do
+    CategoriesListPage.open
   end
 
   step 'I log out' do
