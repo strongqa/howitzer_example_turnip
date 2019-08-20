@@ -7,7 +7,7 @@ Feature: Home
     When I open home page
     Then I should see today form on home page with correct article title
 
-  @exception
+  @no_poltergeist
   Scenario: visitor can see howitzer banner
     When I open home page
     And I open quick start on howitzer frame
