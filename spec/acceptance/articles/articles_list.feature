@@ -20,6 +20,7 @@ Feature: Article list
     Then I should be redirected to search page
     And I should see article on search page
 
+  @wip
   Scenario: user can see and open recently created articles in right sidebar of Article list
     Given there is user in the system
     And I am logged to the system as user
