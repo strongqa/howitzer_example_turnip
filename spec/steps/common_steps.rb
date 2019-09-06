@@ -36,7 +36,7 @@ module Turnip::Steps
   end
 
   step 'there is an article' do
-    self.article = create(:article)
+    self.article = create(:article, category: create(:category, :default))
   end
 
   step 'there is an article category' do
@@ -104,8 +104,8 @@ module Turnip::Steps
     CategoriesListPage.open
   end
 
-  step 'I log out' do
-    HomePage.on { main_menu_section.choose_menu('Logout') }
+  step 'I log out on :page page' do |page|
+    page.on { main_menu_section.choose_menu('Logout') }
   end
 
   step 'I fill and submit form on sign up page with correct data' do

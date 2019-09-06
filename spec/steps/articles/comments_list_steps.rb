@@ -3,7 +3,7 @@ module CommentsListSteps
   # GIVEN
 
   step 'there is an article with created by user comments to this article' do
-    self.article = create(:article)
+    self.article = create(:article, category: create(:category, :default))
     self.comment1 = create(:comment, article: article, user: create(:user))
     self.comment2 = create(:comment, article: article, user: create(:user))
   end

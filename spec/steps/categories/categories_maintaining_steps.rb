@@ -29,6 +29,11 @@ module CategoryMaintainingSteps
   step 'I click delete button near nedded category on categories list page' do
     s = self
     CategoriesListPage.on { delete_category(s.category.name) }
+    if Howitzer.driver == 'webkit'
+      driver.browser.accept_js_confirms
+    else
+      Capybara.current_session.accept_alert
+    end
   end
 
   # THEN
@@ -56,4 +61,4 @@ module CategoryMaintainingSteps
   end
 end
 
-RSpec.configure { |c| c.include CategoryMaintainingSteps, сategory_maintaining: true }
+RSpec.configure { |c| c.include CategoryMaintainingSteps, сategory_maintaining: true, articles_filtering: true }

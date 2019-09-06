@@ -24,7 +24,6 @@ Feature: Category maintaining
     Then I should be redirected to categories list page
     And I should see created category on categories list page
 
-  @bug
   Scenario: admin can delete existed category
     Given there is an article category
     And I open categories list page
