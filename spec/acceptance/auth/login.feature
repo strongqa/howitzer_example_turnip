@@ -29,7 +29,7 @@ Feature: Log In
     And I come back next time
     Then I should be logged to the system
 
-    When I log out
+    When I log out on home page
     Then I should not be logged to the system
     When I close my browser
     And I come back next time

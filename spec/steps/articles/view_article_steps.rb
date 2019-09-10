@@ -10,10 +10,11 @@ module ViewArticleSteps
   # THEN
 
   step 'I should see correct article data on article page' do
-    s = self
+    article_title = article.title
+    article_text = article.text
     ArticlePage.on do
-      expect(text).to include(s.article.title.upcase)
-      expect(text).to include(s.article.text)
+      expect(text).to include(article_title.upcase)
+      expect(text).to include(article_text)
     end
   end
 
