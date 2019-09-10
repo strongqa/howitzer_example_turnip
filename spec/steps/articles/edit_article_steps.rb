@@ -6,8 +6,8 @@ module EditArticleSteps
   # WHEN
 
   step 'I click edit button on articles list page' do
-    s = self
-    ArticleListPage.on { edit_article(s.article.title) }
+    article_title = article.title
+    ArticleListPage.on { edit_article(article_title) }
   end
 
   step 'I fill and submit form on edit article page with new correct data' do
@@ -27,10 +27,10 @@ module EditArticleSteps
   end
 
   step "I fill and submit form on edit article page with data less than 5 characters in 'Title' field" do
-    s = self
+    article_text = article.text
     self.article = build(:article)
     EditArticlePage.on do
-      fill_form(title: '1234', text: s.article.text)
+      fill_form(title: '1234', text: article_text)
       submit_form
     end
   end
@@ -38,10 +38,11 @@ module EditArticleSteps
   # THEN
 
   step 'I should see article with new data on article page' do
-    s = self
+    article_title = article.title
+    article_text = article.text
     ArticlePage.on do
-      expect(text).to include(s.article.title.upcase)
-      expect(text).to include(s.article.text)
+      expect(text).to include(article_title.upcase)
+      expect(text).to include(article_text)
     end
   end
 

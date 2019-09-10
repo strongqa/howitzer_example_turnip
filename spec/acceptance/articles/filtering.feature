@@ -18,4 +18,4 @@ Feature: Articles filtering
     When I log out on categories page
     And I am logged to the system as admin user
     And I open categories list page
-    And I click delete button near nedded category on categories list page
+    And I click delete button near the necessary category on categories list page

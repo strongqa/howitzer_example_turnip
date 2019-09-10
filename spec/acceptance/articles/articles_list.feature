@@ -4,14 +4,14 @@ Feature: Article list
   I want to view my articles
   So I can view my articles in article list
 
-  Scenario: user can see articles in Article list
+  Scenario: user can see articles in article list
     Given there is user in the system
     And I am logged to the system as user
     And there is an article
     When I open articles list page
     Then I should see article in articles list page with correct article parameters
 
-  Scenario: user can find necessary articles by name in Article list
+  Scenario: user can find necessary articles by name in article list
     Given there is user in the system
     And I am logged to the system as user
     And there is an article
@@ -21,7 +21,7 @@ Feature: Article list
     And I should see article on search page
 
   @wip
-  Scenario: user can see and open recently created articles in right sidebar of Article list
+  Scenario: user can see and open recently created articles in right sidebar of article list
     Given there is user in the system
     And I am logged to the system as user
     And there is an article

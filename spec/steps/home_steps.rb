@@ -14,8 +14,8 @@ module HomeSteps
   # THEN
 
   step 'I should see today form on home page with correct article title' do
-    s = self
-    HomePage.on { expect(find_article_group_text(1)).to include(s.article.title.upcase) }
+    article_title = article.title
+    HomePage.on { expect(find_article_group_text(1)).to include(article_title.upcase) }
   end
 
   step 'I should see install section on howitzer frame' do
