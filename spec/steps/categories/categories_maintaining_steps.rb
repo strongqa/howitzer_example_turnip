@@ -47,8 +47,7 @@ module CategoryMaintainingSteps
 
   step 'I should not see category on categories list page' do
     category_name = category.name
-    sleep 2
-    CategoriesListPage.on { is_expected.not_to have_category_item_element(category_name) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(category_name) }
   end
 
   step 'I should be redirected to new category page' do
