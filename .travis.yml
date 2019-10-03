@@ -18,6 +18,10 @@ apt:
     - gstreamer1.0-tools
     - gstreamer1.0-x
 
+before_install:
+  - sudo apt-get install jq
+
+
 install: bundle install --jobs=3 --retry=3 --with webkit
 
 env:
@@ -25,17 +29,6 @@ env:
     - ARTIFACTS_DEBUG=0
     - ARTIFACTS_REGION="eu-west-1"
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
-
-  jobs:
-    include:
-      - stage: trigger downstream
-        script: |
-          echo "TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST"
-          if [[ ($TRAVIS_BRANCH == master) &&
-                ($TRAVIS_PULL_REQUEST == false) ]] ; then
-            curl -LO --retry 3 https://raw.githubusercontent.com/plume-lib/trigger-travis/master/trigger-travis.sh
-            sh trigger-travis.sh howitzer_example_rspec $TRAVIS_ACCESS_TOKEN
-          fi
 
   matrix:
   - secure: "TSee3KGOQOsnV96ge7qUUSIPmWlbtyR3Vl+ozWYgCZ0Uzb/i1O3pfkN9jC+7EbCixdkF4yRVzXEkmB7ewPfSGWQtoJMK9gLPUJx7wOTTyOLKrED96LMYa9YRW7W0wEPiiq5sbdlUwYzGCMrUkx5rULDfXWz90VhV62gdVwBj7Y0k5DHujV0EMWEIk155Bsq7XGnNLc9oZRoI1Jz1LVVORuo4WKsr+E4ShlrWXB4sySYwd/3Pjf6YlO24AUxj3xUmA3ONFf4btpCwfvd1h/yNqd+YodZDnZDot5kXRIDp58v8+jBOCq6Vy/pLrErPoR+hNQmf3obI2cAoYqNVdeySa6gHCkVayahGO1v84GMnNV9iKfjoW9/uhkks1n+nsiwpHLgux62ZiAYdz/J2Dg9a0GD4TxfJRwgdaMYxYjU9vmwBvFn/RRVuMJSfZVGKrOw8Lp56AoSorDY6nA8+c/jnqvzfYsgtAreZz8k7Xv91jtdMOiqKTq7f5Ggcn2Z7Lw2VxYSN3UqxciNM7a40bD2Eux2msBq5HujrCgrLPl5GTURM2OTfxbRxEkDCc26+qvVRKPG1wtSRn1ZivLApysGykaYP+CZ//tts7B8qW1eedRSq7t7HLWR1el/h3cvUEc0/dFMYFUPdWMNgecxHbB/K5IockahmPy1g5wfbnhQ5jG0="
