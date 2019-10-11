@@ -55,7 +55,7 @@ module AddArticleSteps
   end
 
   step 'I should see following text on new article page:' do |text|
-    expect(NewArticlePage.given.text.gsub("\n", ' ').downcase).to include(text.downcase)
+    expect(NewArticlePage.given.text.downcase).to include(text.downcase)
   end
 end
 

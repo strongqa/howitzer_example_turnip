@@ -73,11 +73,11 @@ module ResetPasswordSteps
   # THEN
 
   step 'I should see following text on change password page:' do |text|
-    expect(ChangePasswordPage.given.text.gsub("\n", ' ')).to include(text)
+    expect(ChangePasswordPage.given.text).to include(text)
   end
 
   step 'I should see following text on forgot password page:' do |text|
-    expect(ForgotPasswordPage.given.text.gsub("\n", ' ')).to include(text)
+    expect(ForgotPasswordPage.given.text).to include(text)
   end
 
   step 'forgot password page should be displayed' do
