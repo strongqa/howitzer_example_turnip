@@ -73,10 +73,12 @@ module ResetPasswordSteps
   # THEN
 
   step 'I should see following text on change password page:' do |text|
+    text = text.gsub("\n", ' ') if Howitzer.driver == 'webkit'
     expect(ChangePasswordPage.given.text).to include(text)
   end
 
   step 'I should see following text on forgot password page:' do |text|
+    text = text.gsub("\n", ' ') if Howitzer.driver == 'webkit'
     expect(ForgotPasswordPage.given.text).to include(text)
   end
 
