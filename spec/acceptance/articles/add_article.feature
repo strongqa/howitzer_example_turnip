@@ -11,7 +11,7 @@ Feature: Article Adding
   Scenario: user can add article with correct data
     When I click new article button on article list page
     And I fill and submit form on new article page with correct data
-    Then I should see newly created article with correct data on article page 
+    Then I should see newly created article with correct data on article page
     When I open articles list page
     Then I should see newly created article with correct data on article list page
 
@@ -21,7 +21,8 @@ Feature: Article Adding
     And I fill and submit form on new article page with blank data
     Then I should see following text on new article page:
     """
-    1 error prohibited this article from being saved: title can't be blank
+    1 error prohibited this article from being saved:
+    title can't be blank
     """
 
   @p1
@@ -30,5 +31,6 @@ Feature: Article Adding
     And I fill and submit form on new article page with data less than 5 characters in 'Title' field
     Then I should see following text on new article page:
     """
-    1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)
+    1 error prohibited this article from being saved:
+    Title is too short (minimum is 5 characters)
     """
