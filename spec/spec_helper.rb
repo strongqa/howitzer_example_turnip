@@ -17,7 +17,6 @@ RSpec.configure do |config|
   config.color = true
   config.order = Howitzer.test_order.presence || :defined
 
-
   config.before(:each) do
     scenario_name =
       if RSpec.current_example.description.blank?
