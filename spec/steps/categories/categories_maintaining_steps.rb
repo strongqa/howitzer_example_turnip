@@ -26,7 +26,7 @@ module CategoryMaintainingSteps
     EditCategoryPage.on { update_category(category_name) }
   end
 
-  step 'I click delete button near the necessary category on categories list page' do
+  step 'I delete category' do
     category_name = category.name
     CategoriesListPage.on do
       delete_category(category_name)

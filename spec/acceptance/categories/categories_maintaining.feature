@@ -14,6 +14,8 @@ Feature: Category maintaining
     When I create new category on new category page
     Then I should be redirected to categories list page
     And I should see created category on categories list page
+    When I delete category
+    Then I should not see category on categories list page
 
   Scenario: admin can edit existing category
     Given there is an article category
@@ -23,9 +25,11 @@ Feature: Category maintaining
     When I update name of category on edit category page
     Then I should be redirected to categories list page
     And I should see created category on categories list page
+    When I delete category
+    Then I should not see category on categories list page
 
   Scenario: admin can delete existing category
     Given there is an article category
     And I open categories list page
-    When I click delete button near the necessary category on categories list page
+    When I delete category
     Then I should not see category on categories list page

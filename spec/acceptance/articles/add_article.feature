@@ -21,8 +21,7 @@ Feature: Article Adding
     And I fill and submit form on new article page with blank data
     Then I should see following text on new article page:
     """
-    1 error prohibited this article from being saved:
-    title can't be blank
+    1 error prohibited this article from being saved: title can't be blank
     """
 
   @p1
@@ -31,6 +30,5 @@ Feature: Article Adding
     And I fill and submit form on new article page with data less than 5 characters in 'Title' field
     Then I should see following text on new article page:
     """
-    1 error prohibited this article from being saved:
-    Title is too short (minimum is 5 characters)
+    1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)
     """

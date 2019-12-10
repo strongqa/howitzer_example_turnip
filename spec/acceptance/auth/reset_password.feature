@@ -6,7 +6,6 @@ Feature: Password Resetting
 
   Scenario: user can reset password with correct data
     Given there is user in the system
-    And I am on login page
     When I click forgot password link on login page
     And I fill and submit form on forgot password page with correct email data
     Then I should see following text on login page:
@@ -24,7 +23,6 @@ Feature: Password Resetting
   @p1
   Scenario: user can not reset password with incorrect new password
     Given there is user in the system
-    And I am on login page
     When I click forgot password link on login page
     And I fill and submit form on forgot password page with correct email data
     Then I should see following text on login page:
@@ -48,7 +46,6 @@ Feature: Password Resetting
   @p1
   Scenario: user can not reset password with incorrect email
     Given there is user in the system
-    And I am on login page
     When I click forgot password link on login page
     And I fill and submit form on forgot password page with blank email field
     Then I should see following text on forgot password page:
@@ -67,7 +64,6 @@ Feature: Password Resetting
 
   Scenario: user can login with old password until confirmation email for new password is not confirmed
     Given there is user in the system
-    And I am on login page
     When I click forgot password link on login page
     And I fill and submit form on forgot password page with correct email data
     Then I should see following text on login page:
