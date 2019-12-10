@@ -54,10 +54,9 @@ module ArticlesListSteps
   end
 
   step 'I should see two articles on categories page' do
-    s = self
     CategoriesPage.on do
-      is_expected.to have_article_element(s.article1.title)
-      is_expected.to have_article_element(s.article2.title)
+      is_expected.to have_article_element(out(:@article).title)
+      is_expected.to have_article_element(out(:@article2).title)
     end
   end
 end

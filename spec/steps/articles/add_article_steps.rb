@@ -56,7 +56,7 @@ module AddArticleSteps
 
   step 'I should see following text on new article page:' do |text|
     text = text.gsub("\n", ' ') if Howitzer.driver == 'webkit'
-    expect(NewArticlePage.given.text.downcase).to include(text.downcase)
+    NewArticlePage.on { expect(article_errors_section.error_message.downcase).to eql(text.downcase) }
   end
 end
 

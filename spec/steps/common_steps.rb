@@ -36,21 +36,21 @@ module Turnip::Steps
   end
 
   step 'there is an article' do
-    self.article = create(:article, category: create(:category, :default))
+    @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
   end
 
   step 'there is an article category' do
-    self.category = create(:category)
+    @category = create(:category)
   end
 
   step 'there is an article1 with special category' do
-    s = self
-    self.article1 = create(:article, category: s.category)
+    @article = create(:article, category: @category)
   end
 
   step 'there is an article2 with special category' do
-    s = self
-    self.article2 = create(:article, category: s.category)
+    @article2 = create(:article, category: @category)
+    Howitzer::Cache.store(:teardown, :category, @category.id)
   end
 
   step 'I am on articles list page' do
@@ -84,7 +84,8 @@ module Turnip::Steps
   end
 
   step 'there is an article with created by admin user comment to this article' do
-    self.article = create(:article)
+    @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
     self.comment = create(:comment, article: article, user: create(:user, :admin))
   end
 
@@ -147,7 +148,7 @@ module Turnip::Steps
   end
 
   step 'I should see following text on :page page:' do |page, text|
-    expect(page.given.text).to include(text)
+    page.on { expect(sanitized_alert_text).to eql(text) }
   end
 
   step 'I should be redirected to :page page', &:given
