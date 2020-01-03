@@ -33,13 +33,13 @@ Feature: Password Resetting
     And I fill and submit form on change password page with not identical data
     Then I should see following text on change password page:
     """
-    1 error must be fixed
+    1 ERROR PROHIBITED THIS USER FROM BEING SAVED:
     Password confirmation doesn't match Password
     """
     When I fill and submit form on change password page with identical data less than 8 characters
     Then I should see following text on change password page:
     """
-    1 error must be fixed
+    1 ERROR PROHIBITED THIS USER FROM BEING SAVED:
     Password is too short (minimum is 8 characters)
     """
 
