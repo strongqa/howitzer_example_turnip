@@ -31,16 +31,14 @@ Feature: Password Resetting
     """
     When I receive and confirm resetting password from confirmation email
     And I fill and submit form on change password page with not identical data
-    Then I should see following text on change password page:
+    Then I should see following text on change_password page:
     """
-    1 error must be fixed
-    Password confirmation doesn't match Password
+    1 ERROR PROHIBITED THIS USER FROM BEING SAVED: Password confirmation doesn't match Password
     """
     When I fill and submit form on change password page with identical data less than 8 characters
-    Then I should see following text on change password page:
+    Then I should see following text on change_password page:
     """
-    1 error must be fixed
-    Password is too short (minimum is 8 characters)
+    1 ERROR PROHIBITED THIS USER FROM BEING SAVED: Password is too short (minimum is 8 characters)
     """
 
   @p1
@@ -48,16 +46,14 @@ Feature: Password Resetting
     Given there is user in the system
     When I click forgot password link on login page
     And I fill and submit form on forgot password page with blank email field
-    Then I should see following text on forgot password page:
+    Then I should see following text on forgot_password page:
     """
-    1 error must be fixed
-    Email can't be blank
+    1 error must be fixed Email can't be blank
     """
     And I fill and submit form on forgot password page with not existent email
-    Then I should see following text on forgot password page:
+    Then I should see following text on forgot_password page:
     """
-    1 error must be fixed
-    Email not found
+    1 error must be fixed Email not found
     """
     When I fill and submit form on forgot password page with not email data
     Then forgot password page should be displayed
