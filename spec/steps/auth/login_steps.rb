@@ -71,7 +71,7 @@ module LoginSteps
   end
 
   step 'I close my browser' do
-    execute_script 'window.close();'
+    Capybara.current_session.execute_script 'window.close();'
   end
 end
 

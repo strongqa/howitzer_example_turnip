@@ -27,19 +27,19 @@ module ViewArticleSteps
   end
 
   step 'I should see add comment form on article page' do
-    ArticlePage.on { is_expected.to have_comment_form_element }
+    ArticlePage.on { expect(self).to have_comment_form_element }
   end
 
   step 'I should see body field on article page' do
-    ArticlePage.on { is_expected.to have_comment_field_element }
+    ArticlePage.on { expect(self).to have_comment_field_element }
   end
 
   step 'I should see buttons: edit article, destroy comment, create comment on article page' do
     s = self
     ArticlePage.on do
-      is_expected.to have_edit_article_button_element
-      is_expected.to have_add_comment_button_element
-      is_expected.to have_destroy_comment_element(s.comment.body)
+      expect(self).to have_edit_article_button_element
+      expect(self).to have_add_comment_button_element
+      expect(self).to have_destroy_comment_element(lambda_args(name: s.comment.body))
     end
   end
 

@@ -31,12 +31,12 @@ module ArticlesListSteps
 
   step 'I should see article on search page' do
     article_title = article.title
-    SearchPage.on { is_expected.to have_article_element(article_title) }
+    SearchPage.on { expect(self).to have_article_element(lambda_args(name: article_title)) }
   end
 
   step 'I should see created article in recent post on article list page' do
     article_title = article.title
-    ArticleListPage.on { is_expected.to have_recent_post_element(article_title) }
+    ArticleListPage.on { expect(self).to have_recent_post_element(lambda_args(name: article_title)) }
   end
 
   step 'I should see article parameters on article page' do
@@ -50,13 +50,13 @@ module ArticlesListSteps
 
   step 'I should see category of created articles in right sidebar on article list page' do
     category_name = category.name
-    ArticleListPage.on { is_expected.to have_category_item_element(category_name) }
+    ArticleListPage.on { expect(self).to have_category_item_element(lambda_args(name: category_name)) }
   end
 
   step 'I should see two articles on categories page' do
     CategoriesPage.on do
-      is_expected.to have_article_element(out(:@article).title)
-      is_expected.to have_article_element(out(:@article2).title)
+      expect(self).to have_article_element(lambda_args(name: out(:@article).title))
+      expect(self).to have_article_element(lambda_args(name: out(:@article2).title))
     end
   end
 end

@@ -1,5 +1,5 @@
 module EditArticleSteps
-  attr_accessor :article
+  attr_accessor :article_new
 
   # GIVEN
 
@@ -12,9 +12,9 @@ module EditArticleSteps
 
   step 'I fill and submit form on edit article page with new correct data' do
     s = self
-    self.article = build(:article)
+    self.article_new = build(:article)
     EditArticlePage.on do
-      fill_form(title: s.article.title, text: s.article.text)
+      fill_form(title: s.article_new.title, text: s.article_new.text)
       submit_form
     end
   end
@@ -28,7 +28,6 @@ module EditArticleSteps
 
   step "I fill and submit form on edit article page with data less than 5 characters in 'Title' field" do
     article_text = article.text
-    self.article = build(:article)
     EditArticlePage.on do
       fill_form(title: '1234', text: article_text)
       submit_form
@@ -38,8 +37,8 @@ module EditArticleSteps
   # THEN
 
   step 'I should see article with new data on article page' do
-    article_title = article.title
-    article_text = article.text
+    article_title = article_new.title
+    article_text = article_new.text
     ArticlePage.on do
       expect(text).to include(article_title.upcase)
       expect(text).to include(article_text)

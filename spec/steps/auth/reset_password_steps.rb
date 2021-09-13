@@ -1,5 +1,6 @@
 module ResetPasswordSteps
   attr_accessor :new_user
+
   # GIVEN
 
   # WHEN

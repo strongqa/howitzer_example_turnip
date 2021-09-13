@@ -16,7 +16,7 @@ RSpec.configure do |config|
   config.color = true
   config.order = Howitzer.test_order.presence || :defined
 
-  config.before(:each) do
+  config.before do
     scenario_name =
       if RSpec.current_example.description.blank?
         RSpec.current_example.metadata[:full_description]
@@ -27,16 +27,16 @@ RSpec.configure do |config|
     @session_start = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
   end
 
-  config.after(:each) do
+  config.after do
     test_teardown = Howitzer::Cache.extract(:teardown)
-    test_teardown.keys.each do |key|
+    test_teardown.each_key do |key|
       instance_variable_get("@#{key}")&.destroy
     end
     Howitzer::Cache.clear_all_ns
     if CapybaraHelpers.cloud_driver?
       session_end = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
       Howitzer::Log.info "CLOUD VIDEO #{@session_start} - #{session_end}" \
-               " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
+                         " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
     elsif CapybaraHelpers.ie_browser?
       Howitzer::Log.info 'IE reset session'
       Capybara.current_session.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")

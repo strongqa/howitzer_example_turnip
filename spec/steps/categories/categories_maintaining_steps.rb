@@ -42,12 +42,12 @@ module CategoryMaintainingSteps
 
   step 'I should see created category on categories list page' do
     category_name = category.name
-    CategoriesListPage.on { is_expected.to have_category_item_element(category_name) }
+    CategoriesListPage.on { expect(self).to have_category_item_element(lambda_args(name: category_name)) }
   end
 
   step 'I should not see category on categories list page' do
     category_name = category.name
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category_name) }
+    CategoriesListPage.on { expect(self).to have_no_category_item_element(lambda_args(name: category_name)) }
   end
 
   step 'I should be redirected to new category page' do

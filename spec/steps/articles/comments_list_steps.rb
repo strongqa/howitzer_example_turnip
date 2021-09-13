@@ -1,5 +1,6 @@
 module CommentsListSteps
   attr_accessor :article, :comment1, :comment2
+
   # GIVEN
 
   step 'there is an article with created by user comments to this article' do
