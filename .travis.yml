@@ -31,16 +31,12 @@ env:
     - BASIC_SEXY_SETTINGS="mailgun_key=$MAILGUN_PRIVATE_API_KEY,mailgun_domain=$MAILGUN_DOMAIN"
 
   matrix:
-    - DRIVER=headless_chrome SEXY_SETTINGS="$BASIC_SEXY_SETTINGS,driver=$DRIVER"
-    - DRIVER=headless_firefox SEXY_SETTINGS="$BASIC_SEXY_SETTINGS,driver=$DRIVER"
-    # - secure: "xu1hgO8RQYSpWiw4HttvGbYyuMsrpLdW4g/xTJGs8K/1W7Oxfu7gqwGQpP7TO58Hz/GBPSCboxKWStjAQOlNQEvyBHvA/DiYNGGhez5Gk9pbaSZ+bKU3G9fOZIDXgqhYW94oanua0t0ptug0JsZFoBjwN3o85zwZ6Qux1h6fu05zaA/ro5ESfyVctcOL1sxDvE5yxvV/GlFLZJ4aKf+TS1m8WcvyCsmoLbL0AyxRsAQ8REt85MWxjSStKyn6GLt/xrioMbsiffT76Mjl7763Pa6RQT+efXbWf67c8Qkb5tbM6LjuOYxgb775KUmEIVtQtEHtQbWOkg7XlHuYqXXJ7p8KuqR7uaKDGs2oKkvkp/7qb+4o6fS1BoMTe5ewK084MGwFVTQ2TSR6ptRe3rwEk5PnvBp7Ln6JtICSvMBcrbBYDUkPr1XVopgwOOIb8Rrt3OcP4rQOtyK87ItJWPmR4jH8MNdkQxWHjqDJAoT9Sf918JiXkd25oJkja/I+uudUXjRYp9qTvWFi34V9itL2eBnO/USgvWn0iRGaTA0od6uAq0t5SLUqPVN4QKVmpEOhkr9gdYyrRZNq73ezHLwN0o+9zXChhMASY7Eir5arYCMTsuU1M+CaKIsKvpAo2rkvhu/npDS/zPo5p9guF3jpELMiLf5TRwEA4F/3ZJRaMa0="
-    # #SEXY_SETTINGS=driver=sauce,mailgun_api_key=secret,mailgun_key=secret,sl_user=secret,sl_api_key=secret,cloud_auth_login=secret,cloud_auth_pass=secret
-    # - secure: "vKx1lnsgqZJL/V57DBYLyk6bGdtuWdRg4U+718L+5oA17RDghTPAn8RDVQlKlnDGwJT2LtN4ZUhWghU8hQa6H9n7oeoBe1wXHDdUkwg3MeiVE7KDrMk0bERgGOVcdXZrsz2JjzgP1Re9RQAflpdQXOlsv3R3/8Mjh8oTHfIYprLtQsgtgetb8taqP7l/uK2YOCy5uHzSBgKlHkoCtsliUHbuX4vIZ73qtAsOjfWM70f7FM8DcXTd5OE6IvMpB1wykim60cbjNtxfGHZyesl5bbHPsvB5r3dB1gKkZ8gdYR3y99AoU5/K7MJ2Q0NoODaFqTnl9CVH9asfjVTEQipc0gw+QmEzvR/WJzYH7OhTC8Nwd6ZLr+H3UPpHnLqzrA55PdBYjPrCAmt2y513+o6pgBfBxKCf9+s/aV+ULFzu2dXplTVxV+qRc+UHrQ4pq9/pSFeDcUejorUYzWSv3715Jh6TpNdqgyK2XiX1s37YH4fTeEATniQrygv6wFAWIw/BQB16l1NQwylhnnuxMrM/yYBonjGiuawgx1EAl3smPfY9ReKpFRmTt/rZwWpyJTMrI7ppDT/K0URsYgkOj7zNG6OZlrmiXW4P8NP9oOc1sP99ZsGQ+pAKnq/najrND332aq9QCDqIyBLWRSiVvnCeIgRLD00S+gmKhGOkVyfocno="
-    # #SEXY_SETTINGS=driver=testingbot,mailgun_api_key=secret,mailgun_key=secret,cloud_auth_login=secret,cloud_auth_pass=secret
-    # - secure: "PTz/8o7OGytY0+ii9YFE+B9wdbmJl5S/b+BaCP/6iZyAsR89VV6z9Tuza3AYasiDwF8U/IXelS+5ZeGxaQXiQUWQJynKWScMNe30BMQ4xFD5juCewIurGjW4szOQWCNcaI0bTB/8HYU/ExdYXEktkkq+Wq8UeyChU8UzuHcVS6LOnrmGh0Q2qkzpC66568xRTzxVrs8hmCDaSFjrfVTJv+tz+iY3TDCTN5bDhzKU1+U87k+M0keZrl2FwANU+xyZPSYygzDcoImuifnjONqFR/bPeplw+78zXrf5k1crWlrxlIrac7otOttSqL+IrwclPYVDIWTR9sdol55mWXwVKL9Gt7Ghvij/KHpxabcR9FQU7qyordyElPcs6L6clMexSwiyGhJIJiy2TGi8QOzBMCIa1ji5T3g5iOZoxo65MqeitlLHv+hl6jw8hi8Krsi2MWsLdvUnxovQKFCXuxKvFv9lf9kT7wGvfFoPK7uKm1jYN3naTAl3C/lwl/W0SMuAwBOCHL9FpLnMSuKjbE6vrt8LUPrYBqoK+wqXh+oWI/70dlSOvyjVvzYpR1eB3WH23kEVxNnWm0Q6stm385CQXQpkgo3LGz8clafZd+0J8/x4uwZAxzmPYTd9N5piDDarN4S28q601zex3vsTmf2zovoGpAbjqheCQnhxYLq6oe4="
-    # #SEXY_SETTINGS=driver=browserstack,mailgun_api_key=secret,mailgun_key=secret,cloud_auth_login=secret,cloud_auth_pass=secret
-    # - secure: "y64qqGybBuN3dqygR5KMYH6bhPc+MMrGMoroJhagpFj2DcAPd2LDfSLx/xqnurzCcpCXsj8OAVmSeu/8Fwhwl6rrOneBH6odsl72yDkmvKxLnix7WMfjNqlXkQG8e/BYm5UiUBfDtGEmriPQpMbiw7WjI36Oww8M/A/equRmg+Xw4lbRvKx+FCPsA7Itry5uBN7WA/h2dT2V6f7OyVeCAkqUA4BiWzvujSVIaNj3nYqRjzCRtP0zSlYUAHyKd7Vc7BI1kjc7h/F/p5IMJG4pio3FQOfekgbHxCkGIL0mTPxdlkZXlscKqrTOjcG+ETTi75+62uACn4lYJhW8XoE3bCoHmCBiSnGNO/zMD29Km3dbbohzCeYP/SYISGM4u+hSmmEJku38HUsk+gy/90LMrUo86hYqQQlZbpeVeG4RWt7txakT83uXroq4jmLODeMatZtaV6KDE5mgFyeBROMgVC+ErpT2MuZCl3mDOdho5lUHhnPYINh2wYRUIF+laeXmkqwGeC+4xOXvsjAlBL1VZwCFT+ftpaZpjeb0NtXnParN7RLgRAR+vBq6ktcKRrXSRSW4ovoEzJulhcdzP6Fiw8a+6y+zuAfo7l89UCPr6JhKE/ZbbwWC6urklV/F7glSxuPafKIkssU9D1991SfPY1LwEP+kY5S0D51Xou8h9M8="
-    # #SEXY_SETTINGS=driver=crossbrowsertesting,mailgun_api_key=secret,mailgun_key=secret,cloud_auth_login=secret,cloud_auth_pass=secret
+    - SEXY_SETTINGS="driver=headless_chrome,$BASIC_SEXY_SETTINGS,"
+    - SEXY_SETTINGS="driver=headless_firefox,$BASIC_SEXY_SETTINGS"
+    - SEXY_SETTINGS="driver=sauce,cloud_auth_login=howitzer,cloud_auth_pass=$SAUCE_ACCESS_KEY,$BASIC_SEXY_SETTINGS"
+    - SEXY_SETTINGS="driver=testingbot,cloud_auth_login=$TESTINGBOT_KEY,cloud_auth_pass=$TESTINGBOT_SECRET,$BASIC_SEXY_SETTINGS"
+    - SEXY_SETTINGS="driver=browserstack,cloud_auth_login=$BROWSERSTACK_USER_NAME,cloud_auth_pass=$BROWSERSTACK_ACCESS_KEY,$BASIC_SEXY_SETTINGS"
+    - SEXY_SETTINGS="driver=crossbrowsertesting,cloud_auth_login=$CROSSBROWSERTESTING_USER_NAME,cloud_auth_pass=$CROSSBROWSERTESTING_ACCESS_KEY,$BASIC_SEXY_SETTINGS"
 
 script: ./scripts/run-tests.sh
 
@@ -48,6 +44,5 @@ addons:
   chrome: stable
   firefox: latest
   artifacts:
-    bucket: howitzer-example-travis
     paths:
       - $(find log -type f | tr "\n" ":")
