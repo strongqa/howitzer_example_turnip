@@ -113,8 +113,8 @@ module EditAccountSteps
     end
   end
 
-  step 'I fill and submit form on edit account page less than 8 chars' \
-       " in 'Password' and 'Passsword confirmation' fields" do
+  step 'I fill and submit form on edit account page less than 8 chars ' \
+       "in 'Password' and 'Passsword confirmation' fields" do
     s = self
     EditAccountPage.on do
       fill_form(
