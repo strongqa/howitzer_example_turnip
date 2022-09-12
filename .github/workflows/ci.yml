@@ -83,4 +83,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-run-files
-          path: ./artifacts/**/*
+          path: |
+            ./artifacts/*/*.png
+            ~/artifacts/*/*.png
+            artifacts/*/*.png
+            artifacts/*/*
+            ./artifacts/*/*
+            ~/artifacts/*/*
