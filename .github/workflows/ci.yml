@@ -92,3 +92,4 @@ jobs:
             ./artifacts/*/*
             ~/artifacts/*/*
             file:///artifacts/*/*
+            ${{ env.CI_ARTIFACTS_PATH }}/*/*
