@@ -81,15 +81,20 @@ jobs:
       - name: Show artifacts folder content
         if: always()
         run: |
-          echo "displaying artifacts folder"
-          ls ./artifacts
+          echo "displaying root folder"
+          ls /
+          echo "displaying home folder"
+          ls ~
+          echo "displaying log folder"
+          ls log
       - name: Archive test run files
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-run-files
           path: |
-              file://${{ env.GITHUB_WORKSPACE }}/artifacts/*/*
+             ./log/*
+             ~/log/*
 #            ./artifacts/*/*.png
 #            ~/artifacts/*/*.png
 #            artifacts/*/*.png
