@@ -87,6 +87,8 @@ jobs:
             ./artifacts/*/*.png
             ~/artifacts/*/*.png
             artifacts/*/*.png
+            file:///artifacts/*/*.png
             artifacts/*/*
             ./artifacts/*/*
             ~/artifacts/*/*
+            file:///artifacts/*/*
