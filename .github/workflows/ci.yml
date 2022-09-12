@@ -79,6 +79,7 @@ jobs:
           CI_ARTIFACTS_PATH: file://${{ env.GITHUB_WORKSPACE }}/artifacts
           SEXY_SETTINGS: "driver=${{ matrix.driver }},cloud_auth_login=${{ secrets[format('{0}_AUTH_LOGIN',matrix.cloud)] }},cloud_auth_pass=${{ secrets[format('{0}_AUTH_PASS',matrix.cloud)] }},mailgun_domain=mg.strongqa.com,mailgun_key=${{ secrets.MAILGUN_PRIVATE_API_KEY }}"
       - name: Show artifacts folder content
+        if: always()
         run: |
           echo "displaying artifacts folder"
           ls ./artifacts
@@ -88,7 +89,7 @@ jobs:
         with:
           name: test-run-files
           path: |
-              file://${{ env.GITHUB_WORKSPACE }}/artifacts
+              file://${{ env.GITHUB_WORKSPACE }}/artifacts/*/*
 #            ./artifacts/*/*.png
 #            ~/artifacts/*/*.png
 #            artifacts/*/*.png
