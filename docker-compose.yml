@@ -1,7 +1,7 @@
 version: '1.0'
 
 services:
-  howitzer_example_rspec:
+  howitzer_example_turnip:
     build:
       context: "."
       dockerfile: Dockerfile
