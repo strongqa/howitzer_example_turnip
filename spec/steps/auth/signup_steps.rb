@@ -55,8 +55,8 @@ module SignupSteps
     end
   end
 
-  step 'I fill and submit form with identical data less than 8 chars' \
-       " in 'Password' and 'Password confirmation' fields" do
+  step 'I fill and submit form with identical data less than 8 chars ' \
+       "in 'Password' and 'Password confirmation' fields" do
     s = self
     self.user = build(:user)
     SignUpPage.on do
@@ -100,8 +100,8 @@ module SignupSteps
   step 'I should see info on home page that confirmation link has been sent to email address' do
     HomePage.on do
       expect(text).to include(
-        'A message with a confirmation link has been sent to your email address.' \
-        ' Please open the link to activate your account.'
+        'A message with a confirmation link has been sent to your email address. ' \
+        'Please open the link to activate your account.'
       )
     end
   end
